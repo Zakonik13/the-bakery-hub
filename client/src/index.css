@@ -1,0 +1,32 @@
+/* Navigation */
+.navbar {
+  height: 85px;
+  width: 100%;
+  background-color: #0000006c;
+}
+
+.navbar-brand {
+  width: 300px;
+  text-shadow: 2px 2px #000;
+  padding-left: 38%;
+  padding-right: 30%;
+  font-family: 'Satisfy', cursive;
+  font-weight: bold;
+}
+
+.nav-link {
+  margin-left: 25%;
+  color: rgb(255, 0, 0);
+}
+
+/* Home */
+.hero {
+  display: flex;
+  justify-content: center;
+}
+
+
+.container {
+  margin: none;
+  padding: none;
+}
