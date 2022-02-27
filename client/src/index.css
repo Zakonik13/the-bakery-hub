@@ -1,32 +1,100 @@
-/* Navigation */
-.navbar {
-  height: 85px;
-  width: 100%;
-  background-color: #0000006c;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.navbar-brand {
-  width: 300px;
-  text-shadow: 2px 2px #000;
-  padding-left: 38%;
-  padding-right: 30%;
-  font-family: 'Satisfy', cursive;
-  font-weight: bold;
-}
-
-.nav-link {
-  margin-left: 25%;
-  color: rgb(255, 0, 0);
+.spacer {
+  margin-top: 110px;
 }
 
 /* Home */
-.hero {
+.text-container {
+  margin: 20px 0 50px 0;
+}
+
+.home-upper {
+  position: relative;
+}
+
+.call-to-action {
+  position: absolute;
+  top: 115px;
+  left: 75%;
+}
+
+.story {
+  display: flex;
+  justify-content: center;
+  padding: 0 15px;
+}
+
+.story h1 {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  font-family: "Satisfy", cursive;
+  font-weight: 900;
+  color: #b33e3e;
+  text-shadow: 1.5px 1.5px #000000b4;
+}
+
+.story p {
+  width: 600px;
+  color: #b33e3e;
+  font-weight: bold;
+  font-style: italic;
+}
+
+.story a {
+  text-decoration: none;
+  color: #b33e3e;
+  font-weight: bolder;
+}
+
+.story a:hover {
+  color: rgb(170, 170, 170);
+  font-weight: bolder;
+}
+
+/* Order Form */
+.container.order-form {
+  height: 1000px;
+  /* border: solid thin rgb(165, 165, 165); */
+  padding-top: 20px;
+}
+
+.orderform-form-style {
   display: flex;
   justify-content: center;
 }
 
+.div-order-form {
+  display: flex;
+  justify-content: center;
+}
 
-.container {
-  margin: none;
-  padding: none;
+.form-label {
+  margin-right: 10px;
+}
+
+/* Admin Edit Page */
+.container.admin-container {
+  height: 1000px;
+}
+
+/* Contact Page */
+.hour-title {
+  padding-left: 100px;
+}
+
+.day-spacer {
+  width: 110px;
+}
+
+.middle-spacer {
+  width: 220px;
+}
+
+.hour-spacer {
+  width: 160px;
 }

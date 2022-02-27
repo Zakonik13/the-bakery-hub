@@ -1,0 +1,67 @@
+form {
+  width: 100%;
+}
+
+.twenty {
+  height: 20px;
+}
+
+.three {
+  height: 80px;
+}
+
+.four {
+  height: 180px;
+}
+
+.margin-top {
+  margin-top: 30px;
+}
+
+.radiospace {
+  margin-right: 20px;
+  visibility: hidden;
+}
+
+.radiospace:checked + label {
+  border-bottom: #b33e3e solid;
+  color: #b33e3e;
+}
+
+label {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.type {
+  visibility: hidden;
+}
+
+.type:checked + label {
+  border-bottom: #b33e3e solid;
+  color: #b33e3e;
+}
+
+.float-left {
+  float: left;
+  width: 20%;
+}
+
+.float-right {
+  float: right;
+  width: 80%;
+}
+
+.color {
+  margin-right: 15px;
+}
+
+::placeholder {
+  padding: 2px 0 0 4px;
+  opacity: 40%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}

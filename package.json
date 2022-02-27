@@ -1,7 +1,7 @@
 {
   "name": "the-bakery-hub",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server/server.js",
   "scripts": {
     "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
     "start:prod": "cd server && npm start",
@@ -21,7 +21,7 @@
   },
   "homepage": "https://github.com/Zakonik13/the-bakery-hub#readme",
   "dependencies": {
-    "concurrently": "^6.2.0"
+    "concurrently": "^7.0.0"
   },
   "description": ""
 }

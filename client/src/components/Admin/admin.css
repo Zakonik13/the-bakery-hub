@@ -1,0 +1,15 @@
+.log-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vw;
+}
+
+.form-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 500px;
+  background-color: rgba(203, 216, 236, 0.712);
+}
