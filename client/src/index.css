@@ -4,7 +4,32 @@
 }
 
 .spacer {
-  margin-top: 110px;
+  margin-top: 85.5px;
+}
+
+/* NavBar */
+.navbar {
+  background-color: #000000c7;
+}
+
+.navbar-brand {
+  text-shadow: 2px 2px #000;
+  font-family: "Satisfy", cursive;
+  font-weight: bold;
+  padding-left: 20px;
+}
+
+.nav-link {
+  margin: 0 20px;
+}
+
+.nav-link:hover {
+  text-shadow: 3px 3px rgba(0, 0, 0, 0.308);
+  font-weight: bold;
+}
+
+.collapsed {
+  margin-right: 10px;
 }
 
 /* Home */
@@ -12,14 +37,26 @@
   margin: 20px 0 50px 0;
 }
 
-.home-upper {
-  position: relative;
+.main-title {
+  display: flex;
+  justify-content: center;
+  color: #b33e3e;
+  font-size: 35px;
+  font-weight: bold;
+  font-style: italic;
+  text-shadow: 1px 1px black;
+}
+
+.image-center {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
 
 .call-to-action {
   position: absolute;
-  top: 115px;
-  left: 75%;
+  top: 95px;
+  right: 10px;
 }
 
 .story {
@@ -28,14 +65,15 @@
   padding: 0 15px;
 }
 
-.story h1 {
+.story h2 {
   display: flex;
   justify-content: center;
   padding: 10px;
-  font-family: "Satisfy", cursive;
-  font-weight: 900;
+  /* font-family: "Satisfy", cursive;
+  font-weight: 900; */
+  font-style: italic;
   color: #b33e3e;
-  text-shadow: 1.5px 1.5px #000000b4;
+  text-shadow: 1px 1px #000000b4;
 }
 
 .story p {
@@ -43,6 +81,8 @@
   color: #b33e3e;
   font-weight: bold;
   font-style: italic;
+  /* font-size: 20px; */
+  /* text-shadow: 0.5px 0.5px #00000060; */
 }
 
 .story a {
@@ -56,11 +96,77 @@
   font-weight: bolder;
 }
 
+/* Menu Options */
+.center-options {
+  display: flex;
+  justify-content: center;
+}
+
+.carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 340px;
+  width: 500px;
+  overflow: hidden;
+}
+
+/* Menu Box */
+.menubox-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-top: 20px;
+}
+
+.menubox-div {
+  width: 175;
+  margin: 0 20px;
+}
+
+figure {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  width: max-content;
+}
+
+.menu-title-bar {
+  position: absolute;
+  top: 32%;
+  height: 45px;
+  width: 250px;
+  background-color: #00000071;
+  display: flex;
+  justify-content: center;
+}
+
+.menu-title {
+  text-decoration: none;
+  color: white;
+}
+
+.img-size {
+  object-fit: cover;
+  height: 250px;
+  width: 250px;
+  border-radius: 15px;
+  margin-bottom: 50px;
+}
+
+.box:hover {
+  opacity: 80%;
+}
+
+.font-size1 {
+  font-size: 30px;
+}
+
 /* Order Form */
 .container.order-form {
   height: 1000px;
   /* border: solid thin rgb(165, 165, 165); */
-  padding-top: 20px;
+  padding-top: 1px;
 }
 
 .orderform-form-style {
@@ -77,6 +183,98 @@
   margin-right: 10px;
 }
 
+.bold {
+  font-weight: bold;
+}
+
+/* Additional Order Form */
+form {
+  width: 100%;
+}
+
+.twenty {
+  height: 20px;
+}
+
+.three {
+  height: 80px;
+}
+
+.four {
+  height: 180px;
+}
+
+.margin-top {
+  margin-top: 30px;
+}
+
+.radiospace {
+  margin-right: 20px;
+  visibility: hidden;
+}
+
+.radiospace:checked + label {
+  border-bottom: #b33e3e solid;
+  color: #b33e3e;
+}
+
+label {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.type {
+  visibility: hidden;
+}
+
+.type:checked + label {
+  border-bottom: #b33e3e solid;
+  color: #b33e3e;
+}
+
+.float-left {
+  float: left;
+  width: 20%;
+}
+
+.float-right {
+  float: right;
+  width: 80%;
+}
+
+.color {
+  margin-right: 15px;
+}
+
+::placeholder {
+  padding: 2px 0 0 4px;
+  opacity: 40%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+/* Cart */
+
+/* Admin */
+.log-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vw;
+}
+
+.form-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 300px;
+  width: 500px;
+  background-color: rgba(203, 216, 236, 0.712);
+}
+
 /* Admin Edit Page */
 .container.admin-container {
   height: 1000px;
@@ -84,17 +282,48 @@
 
 /* Contact Page */
 .hour-title {
-  padding-left: 100px;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-size: 15px;
 }
 
 .day-spacer {
   width: 110px;
 }
 
-.middle-spacer {
-  width: 220px;
-}
+/* .floatLeft {
+  float: left;
+} */
 
 .hour-spacer {
   width: 160px;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  justify-content: space-around;
+}
+
+.icon-padding {
+  padding: 10px;
+}
+
+/* Footer */
+.footer {
+  height: 310px;
+  width: 100%;
+  background-color: rgb(43, 43, 43);
+}
+
+.footer-spacer {
+  padding: 10px 0px 0px 20px;
+}
+
+.floatRight {
+  float: right;
 }

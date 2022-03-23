@@ -2,25 +2,22 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
+import { StoreProvider } from "./utils/GlobalState";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Components and Pages
 import Home from "./pages/Home";
 import Menu from "./pages/Menu";
 import OrderForm from "./pages/OrderForm";
-import Contact from "./pages/Contact";
+import Cart from "./components/Cart";
 import AdminEdit from "./pages/AdminEdit";
 import Navigation from "./components/NavBar";
-import Facebook from "./components/Facebook";
-import Cakes from "./components/MenuOptions/Cakes";
-import Pies from "./components/MenuOptions/Pies";
-import Cupcakes from "./components/MenuOptions/Cupcakes";
-import Brownies from "./components/MenuOptions/Brownies";
-import Cookies from "./components/MenuOptions/Cookies";
-import More from "./components/MenuOptions/More";
-import Main from "./components/OrderForms/Main.js";
+import Cakes from "./components/Cakes";
+import Pies from "./components/Pies";
+import Cookies from "./components/Cookies";
+import More from "./components/More";
 import Footer from "./components/Footer";
-import Admin from "./components/Admin/Admin";
-import Signup from "./components/Admin/Signup";
+import Admin from "./components/Admin";
+import Signup from "./components/Signup";
 
 const client = new ApolloClient({
   // Retrieve token from localStorage before each request is made to GraphQL
@@ -41,7 +38,7 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div>
+        <StoreProvider>
           <Navigation />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -50,18 +47,14 @@ function App() {
             <Route path="/create-new-admin-signup" element={<Signup />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/order-form" element={<OrderForm />} />
-            <Route path="/contact" element={<Contact />} />
-            <Route path="/fbpage" element={<Facebook />} />
+            <Route path="/cart" element={<Cart />} />
             <Route path="/cakes" element={<Cakes />} />
             <Route path="/pies" element={<Pies />} />
-            <Route path="/cupcakes" element={<Cupcakes />} />
-            <Route path="/brownies" element={<Brownies />} />
             <Route path="/cookies" element={<Cookies />} />
             <Route path="/more" element={<More />} />
-            <Route path="/main" element={<Main />} />
           </Routes>
           <Footer />
-        </div>
+        </StoreProvider>
       </Router>
     </ApolloProvider>
   );

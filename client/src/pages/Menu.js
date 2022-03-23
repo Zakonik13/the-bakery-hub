@@ -3,10 +3,10 @@ import React from "react";
 import americanPie from "../images/american-pie.jpg";
 import cake from "../images/wedding-cake.jpg";
 import extra from "../images/chocolate-strawberries.jpg";
-import brownie from "../images/brownie.jpg";
 import cookie from "../images/cookies.jpg";
-import cupcake from "../images/blue-white-cupcakes.jpg";
 import MenuBox from "../components/MenuBox";
+// Components
+import Page from "../components/Page";
 
 const Menu = () => {
   const options = [
@@ -24,24 +24,12 @@ const Menu = () => {
     },
     {
       id: 3,
-      name: "Cupcakes",
-      image: cupcake,
-      alt: "cupcakes",
+      name: "Cookies",
+      image: cookie,
+      alt: "cookies",
     },
     {
       id: 4,
-      name: "Brownies",
-      image: brownie,
-      alt: "brownies",
-    },
-    {
-      id: 5,
-      name: "Cookies",
-      image: cookie,
-      alt: "cookie",
-    },
-    {
-      id: 6,
       name: "More",
       image: extra,
       alt: "more",
@@ -49,9 +37,9 @@ const Menu = () => {
   ];
 
   return (
-    <div className="spacer" style={{ minHeight: "60vw" }}>
+    <Page title="Menu">
       <MenuBox options={options} />
-    </div>
+    </Page>
   );
 };
 
