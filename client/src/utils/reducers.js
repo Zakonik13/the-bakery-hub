@@ -1,5 +1,5 @@
 import { useReducer } from "react";
-import { UPDATE_CART } from "./actions";
+import { REMOVE_FROM_CART, UPDATE_CART } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -9,6 +9,15 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cart: [...state.cart, action.cart],
+      };
+
+    case REMOVE_FROM_CART:
+      let newState = state.cart.filter((item, index) => {
+        return index !== parseInt(action.target);
+      });
+      return {
+        ...state,
+        cart: newState,
       };
 
     // if it's none of these actions, do not update state and all

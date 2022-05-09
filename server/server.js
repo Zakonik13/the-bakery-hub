@@ -1,4 +1,5 @@
 const express = require("express");
+const { Cake } = require("./models");
 
 // import middleware function for verifying token
 const { authMiddleware } = require("./utils/auth");
@@ -30,7 +31,6 @@ async function startApolloServer(typeDefs, resolvers) {
   const apolloServer = new ApolloServer({
     typeDefs,
     resolvers,
-    context: authMiddleware,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
   // more required logic for integrating with Express

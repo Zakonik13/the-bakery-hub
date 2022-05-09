@@ -1,39 +1,35 @@
 import React from "react";
-import { Container, Row, Col, ListGroup } from "react-bootstrap";
-
+import { Container, Row, Col } from "react-bootstrap";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_SCHEDULE } from "../utils/queries";
+// Components
 import Opened from "./Opened";
 
 const Hours = () => {
-  const operatingHours = [
-    {
-      day: "Sunday",
-      hours: "Closed",
-    },
-    {
-      day: "Monday",
-      hours: "Closed",
-    },
-    {
-      day: "Tuesday",
-      hours: "9:00AM - 6:00PM",
-    },
-    {
-      day: "Wednesday",
-      hours: "9:00AM - 6:00PM",
-    },
-    {
-      day: "Thursday",
-      hours: "9:00AM - 6:00PM",
-    },
-    {
-      day: "Friday",
-      hours: "9:00AM - 6:00PM",
-    },
-    {
-      day: "Saturday",
-      hours: "9:00AM - 6:00PM",
-    },
-  ];
+  const { data } = useQuery(GET_SCHEDULE);
+
+  const operatingHours = {
+    _id: "123456789",
+    SundayAM: "loading...",
+    SundayPM: "loading...",
+    MondayAM: "loading...",
+    MondayPM: "loading...",
+    TuesdayAM: "loading...",
+    TuesdayPM: "loading...",
+    WednesdayAM: "loading...",
+    WednesdayPM: "loading...",
+    ThursdayAM: "loading...",
+    ThursdayPM: "loading...",
+    FridayAM: "loading...",
+    FridayPM: "loading...",
+    SaturdayAM: "loading...",
+    SaturdayPM: "loading...",
+  };
+
+  const schedule = data?.schedule || operatingHours;
+
+  const scheduleArr = Object.entries(schedule);
+  const hours = scheduleArr.filter((item, index) => index !== 0);
 
   return (
     <div>
@@ -42,7 +38,7 @@ const Hours = () => {
           <Col />
           <Col>
             <h6 className="hour-title">Hours</h6>
-            <Opened workHours={operatingHours} />
+            <Opened workHours={hours} />
           </Col>
           <Col />
         </Row>

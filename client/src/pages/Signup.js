@@ -14,7 +14,7 @@ const Signup = () => {
   // update state based on form input changes
   const handleChange = (event) => {
     const { name, value } = event.target;
-    console.log(name, value);
+
     setFormState({
       ...formState,
       [name]: value,

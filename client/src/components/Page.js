@@ -3,12 +3,19 @@ import React, { useEffect } from "react";
 import Container from "./Container";
 
 function Page(props) {
+  const { background } = props;
   useEffect(() => {
     document.title = `${props.title} | The Bakery Hub`;
     window.scrollTo(0, 0);
   }, [props.title]);
 
-  return <Container fluid>{props.children}</Container>;
+  return (
+    <Container fluid>
+      <div className="page" style={background}>
+        {props.children}
+      </div>
+    </Container>
+  );
 }
 
 export default Page;

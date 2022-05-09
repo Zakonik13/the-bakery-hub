@@ -6,18 +6,19 @@ import { StoreProvider } from "./utils/GlobalState";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Components and Pages
 import Home from "./pages/Home";
+import Gallery from "./pages/Gallery";
 import Menu from "./pages/Menu";
 import OrderForm from "./pages/OrderForm";
-import Cart from "./components/Cart";
-import AdminEdit from "./pages/AdminEdit";
+import Cart from "./pages/Cart";
+import AdminEditPage from "./pages/AdminEditPage";
 import Navigation from "./components/NavBar";
-import Cakes from "./components/Cakes";
-import Pies from "./components/Pies";
-import Cookies from "./components/Cookies";
-import More from "./components/More";
+import Cakes from "./components/GalleryItems/Cakes";
+import Pies from "./components/GalleryItems/Pies";
+import Cookies from "./components/GalleryItems/Cookies";
+import More from "./components/GalleryItems/More";
 import Footer from "./components/Footer";
 import Admin from "./components/Admin";
-import Signup from "./components/Signup";
+import Signup from "./pages/Signup";
 
 const client = new ApolloClient({
   // Retrieve token from localStorage before each request is made to GraphQL
@@ -43,8 +44,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/admin" element={<Admin />} />
-            <Route path="/admin-edit" element={<AdminEdit />} />
+            <Route path="/admin-edit" element={<AdminEditPage />} />
             <Route path="/create-new-admin-signup" element={<Signup />} />
+            <Route path="/gallery" element={<Gallery />} />
             <Route path="/menu" element={<Menu />} />
             <Route path="/order-form" element={<OrderForm />} />
             <Route path="/cart" element={<Cart />} />
