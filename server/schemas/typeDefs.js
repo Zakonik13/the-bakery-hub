@@ -6,10 +6,12 @@ const typeDefs = gql`
     users: [User]
     user(email: String!): User
     homePage: HomePage
-    cakeImages: [CakeImage]
     cake: Cake
+    cookie: Cookie
     cupcake: Cupcake
     pie: Pie
+    extras: [Extra]
+    extra(_id: ID!): Extra
     schedule: Schedule
     menu: Menu
   }
@@ -32,28 +34,40 @@ const typeDefs = gql`
     home_paragraph3: String
   }
 
-  type CakeImage {
-    link: String
-  }
-
   type Cake {
     _id: ID
-    link: String
+    links: [String]
     themes: [String]
+    flavors: [String]
+  }
+
+  type Cookie {
+    _id: ID
+    links: [String]
     flavors: [String]
   }
 
   type Cupcake {
     _id: ID
-    link: String
+    links: [String]
     themes: [String]
     flavors: [String]
   }
 
   type Pie {
     _id: ID
-    link: String
+    links: [String]
     flavors: [String]
+  }
+
+  type Extra {
+    _id: ID
+    product: String
+    link: String
+    flavor: String
+    theme: String
+    qty: String
+    price: Int
   }
 
   type Schedule {
@@ -104,36 +118,64 @@ const typeDefs = gql`
       home_paragraph2: String
       home_paragraph3: String
     ): HomePage
-    addCakeImage(link: String): CakeImage
-    addCake(link: String, themes: [String], flavors: [String]): Cake
+    addCake(links: [String], themes: [String], flavors: [String]): Cake
     updateCake(
       _id: ID!
-      link: String
+      links: [String]
       themes: [String]
       flavors: [String]
     ): Cake
     removeCake(
       _id: ID!
-      link: String
+      links: [String]
       themes: [String]
       flavors: [String]
     ): Cake
-    addCupcake(link: String, themes: [String], flavors: [String]): Cupcake
+    addCookie(links: [String], flavors: [String]): Cookie
+    updateCookie(_id: ID!, links: [String], flavors: [String]): Cookie
+    removeCookie(_id: ID!, links: [String], flavors: [String]): Cookie
+    addCupcake(links: [String], themes: [String], flavors: [String]): Cupcake
     updateCupcake(
       _id: ID!
-      link: String
+      links: [String]
       themes: [String]
       flavors: [String]
     ): Cupcake
     removeCupcake(
       _id: ID!
-      link: String
+      links: [String]
       themes: [String]
       flavors: [String]
     ): Cupcake
-    addPie(link: String, flavors: [String]): Pie
-    updatePie(_id: ID!, link: String, flavors: [String]): Pie
-    removePie(_id: ID!, link: String, flavors: [String]): Pie
+    addPie(links: [String], flavors: [String]): Pie
+    updatePie(_id: ID!, links: [String], flavors: [String]): Pie
+    removePie(_id: ID!, links: [String], flavors: [String]): Pie
+    addExtra(
+      product: String
+      link: String
+      flavor: String
+      theme: String
+      qty: String
+      price: Int
+    ): Extra
+    updateExtra(
+      _id: ID!
+      product: String
+      link: String
+      flavor: String
+      theme: String
+      qty: String
+      price: Int
+    ): Extra
+    removeExtra(
+      _id: ID!
+      product: String
+      link: String
+      flavor: String
+      theme: String
+      qty: String
+      price: Int
+    ): Extra
     addSchedule(
       sundayAM: String
       sundayPM: String

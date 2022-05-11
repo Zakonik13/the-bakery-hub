@@ -69,18 +69,10 @@ export const UPDATE_HOMEPAGE = gql`
   }
 `;
 
-export const ADD_CAKE_IMAGE = gql`
-  mutation AddCakeImage($link: String) {
-    addCakeImage(link: $String) {
-      link
-    }
-  }
-`;
-
 export const ADD_CAKE = gql`
-  mutation addCake($link: String, $themes: String, $flavors: String) {
-    addCake(link: $link, themes: $themes, flavors: $flavors) {
-      link
+  mutation addCake($links: [String], $themes: [String], $flavors: [String]) {
+    addCake(links: $links, themes: $themes, flavors: $flavors) {
+      links
       themes
       flavors
     }
@@ -90,13 +82,13 @@ export const ADD_CAKE = gql`
 export const UPDATE_CAKE = gql`
   mutation updateCake(
     $id: ID!
-    $link: String
+    $links: [String]
     $themes: [String]
     $flavors: [String]
   ) {
-    updateCake(_id: $id, link: $link, themes: $themes, flavors: $flavors) {
+    updateCake(_id: $id, links: $links, themes: $themes, flavors: $flavors) {
       _id
-      link
+      links
       themes
       flavors
     }
@@ -106,23 +98,52 @@ export const UPDATE_CAKE = gql`
 export const REMOVE_CAKE = gql`
   mutation removeCake(
     $id: ID!
-    $link: String
+    $links: [String]
     $themes: [String]
     $flavors: [String]
   ) {
-    removeCake(_id: $id, link: $link, themes: $themes, flavors: $flavors) {
+    removeCake(_id: $id, links: $links, themes: $themes, flavors: $flavors) {
       _id
-      link
+      links
       themes
       flavors
     }
   }
 `;
 
+export const ADD_COOKIE = gql`
+  mutation addCookie($links: [String], $flavors: [String]) {
+    addCookie(links: $links, flavors: $flavors) {
+      links
+      flavors
+    }
+  }
+`;
+
+export const UPDATE_COOKIE = gql`
+  mutation updateCookie($id: ID!, $links: [String], $flavors: [String]) {
+    updateCookie(_id: $id, links: $links, flavors: $flavors) {
+      _id
+      links
+      flavors
+    }
+  }
+`;
+
+export const REMOVE_COOKIE = gql`
+  mutation removeCookie($id: ID!, $links: [String], $flavors: [String]) {
+    removeCookie(_id: $id, links: $links, flavors: $flavors) {
+      _id
+      links
+      flavors
+    }
+  }
+`;
+
 export const ADD_CUPCAKE = gql`
-  mutation addCupcake($link: String, $themes: String, $flavors: String) {
-    addCupcake(link: $link, themes: $themes, flavors: $flavors) {
-      link
+  mutation addCupcake($links: [String], $themes: [String], $flavors: [String]) {
+    addCupcake(links: $links, themes: $themes, flavors: $flavors) {
+      links
       themes
       flavors
     }
@@ -132,13 +153,13 @@ export const ADD_CUPCAKE = gql`
 export const UPDATE_CUPCAKE = gql`
   mutation updateCupcake(
     $id: ID!
-    $link: String
+    $links: [String]
     $themes: [String]
     $flavors: [String]
   ) {
-    updateCupcake(_id: $id, link: $link, themes: $themes, flavors: $flavors) {
+    updateCupcake(_id: $id, links: $links, themes: $themes, flavors: $flavors) {
       _id
-      link
+      links
       themes
       flavors
     }
@@ -148,13 +169,13 @@ export const UPDATE_CUPCAKE = gql`
 export const REMOVE_CUPCAKE = gql`
   mutation removeCupcake(
     $id: ID!
-    $link: String
+    $links: [String]
     $themes: [String]
     $flavors: [String]
   ) {
-    removeCupcake(_id: $id, link: $link, themes: $themes, flavors: $flavors) {
+    removeCupcake(_id: $id, links: $links, themes: $themes, flavors: $flavors) {
       _id
-      link
+      links
       themes
       flavors
     }
@@ -162,31 +183,97 @@ export const REMOVE_CUPCAKE = gql`
 `;
 
 export const ADD_PIE = gql`
-  mutation addPie($link: String, $flavors: String) {
-    addPie(link: $link, flavors: $flavors) {
-      link
+  mutation addPie($links: [String], $flavors: [String]) {
+    addPie(links: $links, flavors: $flavors) {
+      links
       flavors
     }
   }
 `;
 
 export const UPDATE_PIE = gql`
-  mutation updatePie($id: ID!, $link: String, $flavors: [String]) {
-    updatePie(_id: $id, link: $link, flavors: $flavors) {
+  mutation updatePie($id: ID!, $links: [String], $flavors: [String]) {
+    updatePie(_id: $id, links: $links, flavors: $flavors) {
       _id
-      link
+      links
       flavors
     }
   }
 `;
 
 export const REMOVE_PIE = gql`
-  mutation removePie($id: ID!, $link: String, $flavors: [String]) {
-    removePie(_id: $id, link: $link, flavors: $flavors) {
+  mutation removePie($id: ID!, $links: [String], $flavors: [String]) {
+    removePie(_id: $id, links: $links, flavors: $flavors) {
       _id
-      link
+      links
       flavors
     }
+  }
+`;
+
+export const ADD_EXTRA = gql`
+  mutation addExtra(
+    $id: ID!
+    $product: String
+    $link: String
+    $flavor: String
+    $theme: String
+    $qty: String
+    $price: Int
+  ) {
+    addExtra(
+      _id: $id
+      product: $product
+      link: $link
+      flavor: $flavor
+      theme: $theme
+      qty: $qty
+      price: $price
+    ) {
+      _id
+      product
+      link
+      flavor
+      theme
+      qty
+      price
+    }
+  }
+`;
+
+export const UPDATE_EXTRA = gql`
+  mutation updateExtra(
+    $id: ID!
+    $product: String
+    $link: String
+    $flavor: String
+    $theme: String
+    $qty: String
+    $price: Int
+  ) {
+    updateExtra(
+      _id: $id
+      product: $product
+      link: $link
+      flavor: $flavor
+      theme: $theme
+      qty: $qty
+      price: $price
+    ) {
+      _id
+      product
+      link
+      flavor
+      theme
+      qty
+      price
+    }
+  }
+`;
+
+export const REMOVE_EXTRA = gql`
+  mutation removeExtra($id: ID!) {
+    removeExtra(_id: $id)
   }
 `;
 
@@ -222,7 +309,23 @@ export const ADD_SCHEDULE = gql`
       fridayPM: $fridayPM
       saturdayAM: $saturdayAM
       saturdayPM: $saturdayPM
-    )
+    ) {
+      _id
+      sundayAM
+      sundayPM
+      mondayAM
+      mondayPM
+      tuesdayAM
+      tuesdayPM
+      wednesdayAM
+      wednesdayPM
+      thursdayAM
+      thursdayPM
+      fridayAM
+      fridayPM
+      saturdayAM
+      saturdayPM
+    }
   }
 `;
 
@@ -304,7 +407,19 @@ export const ADD_MENU = gql`
       dozenCookies: $dozenCookies
       other: $other
       otherPrice: $otherPrice
-    )
+    ) {
+      _id
+      eightInch
+      tenInch
+      quarterSheet
+      halfSheet
+      individualPie
+      standardPie
+      dozenCupcakes
+      dozenCookies
+      other
+      otherPrice
+    }
   }
 `;
 

@@ -2,10 +2,11 @@ const { User } = require("../models");
 const { AuthenticationError } = require("apollo-server-express");
 const { signToken } = require("../utils/auth");
 const { HomePage } = require("../models");
-const { CakeImage } = require("../models");
 const { Cake } = require("../models");
+const { Cookie } = require("../models");
 const { Cupcake } = require("../models");
 const { Pie } = require("../models");
+const { Extra } = require("../models");
 const { Schedule } = require("../models");
 const { Menu } = require("../models");
 
@@ -31,17 +32,23 @@ const resolvers = {
     homePage: async () => {
       return HomePage.findOne();
     },
-    cakeImages: async () => {
-      return CakeImage.find();
-    },
     cake: async () => {
       return Cake.findOne();
+    },
+    cookie: async () => {
+      return Cookie.findOne();
     },
     cupcake: async () => {
       return Cupcake.findOne();
     },
     pie: async () => {
       return Pie.findOne();
+    },
+    extras: async () => {
+      return Extra.find();
+    },
+    extra: async (parent, { _id }) => {
+      return Extra.findOne({ _id });
     },
     schedule: async () => {
       return Schedule.findOne();
@@ -117,16 +124,12 @@ const resolvers = {
 
       return homePage;
     },
-    addCakeImage: async (parent, args) => {
-      const cakeImage = await CakeImage.create(args);
-      return cakeImage;
-    },
     addCake: async (parent, args) => {
       const cake = await Cake.create(args);
 
       return cake;
     },
-    updateCake: async (parent, { _id, link, themes, flavors }) => {
+    updateCake: async (parent, { _id, links, themes, flavors }) => {
       const old = await Cake.findOne({ _id });
       var newThemeArray;
       var newFlavorArray;
@@ -146,7 +149,7 @@ const resolvers = {
       const updatedCake = await Cake.findOneAndUpdate(
         { _id },
         {
-          link: link,
+          links: links,
           themes: newThemeArray,
           flavors: newFlavorArray,
         },
@@ -155,7 +158,7 @@ const resolvers = {
 
       return updatedCake;
     },
-    removeCake: async (parent, { _id, link, themes, flavors }) => {
+    removeCake: async (parent, { _id, links, themes, flavors }) => {
       const old = await Cake.findOne({ _id });
       var newThemeArray;
       var newFlavorArray;
@@ -175,7 +178,7 @@ const resolvers = {
       const updatedCake = await Cake.findOneAndUpdate(
         { _id },
         {
-          link: link,
+          links: links,
           themes: newThemeArray,
           flavors: newFlavorArray,
         },
@@ -184,12 +187,48 @@ const resolvers = {
 
       return updatedCake;
     },
+    addCookie: async (parent, args) => {
+      const cookie = await Cookie.create(args);
+
+      return cookie;
+    },
+    updateCookie: async (parent, { _id, links, flavors }) => {
+      const old = await Cookie.findOne({ _id });
+      const newArray = old.flavors.concat(flavors);
+
+      const updatedCookie = await Cookie.findOneAndUpdate(
+        { _id },
+        {
+          links: links,
+          flavors: newArray,
+        },
+        { new: true }
+      );
+
+      return updatedCookie;
+    },
+    removeCookie: async (parent, { _id, links, flavors }) => {
+      const old = await Cookie.findOne({ _id });
+      const newArray = old.flavors.filter((item) => item !== flavors[0]);
+      console.log(_id, newArray);
+
+      const updatedCookie = await Cookie.findOneAndUpdate(
+        { _id },
+        {
+          links: links,
+          flavors: newArray,
+        },
+        { new: true }
+      );
+
+      return updatedCookie;
+    },
     addCupcake: async (parent, args) => {
       const cupcake = await Cupcake.create(args);
 
       return cupcake;
     },
-    updateCupcake: async (parent, { _id, link, themes, flavors }) => {
+    updateCupcake: async (parent, { _id, links, themes, flavors }) => {
       const old = await Cupcake.findOne({ _id });
       var newThemeArray;
       var newFlavorArray;
@@ -209,7 +248,7 @@ const resolvers = {
       const updatedCupcake = await Cupcake.findOneAndUpdate(
         { _id },
         {
-          link: link,
+          links: links,
           themes: newThemeArray,
           flavors: newFlavorArray,
         },
@@ -218,7 +257,7 @@ const resolvers = {
 
       return updatedCupcake;
     },
-    removeCupcake: async (parent, { _id, link, themes, flavors }) => {
+    removeCupcake: async (parent, { _id, links, themes, flavors }) => {
       const old = await Cupcake.findOne({ _id });
       var newThemeArray;
       var newFlavorArray;
@@ -238,7 +277,7 @@ const resolvers = {
       const updatedCupcake = await Cupcake.findOneAndUpdate(
         { _id },
         {
-          link: link,
+          links: links,
           themes: newThemeArray,
           flavors: newFlavorArray,
         },
@@ -252,14 +291,14 @@ const resolvers = {
 
       return pie;
     },
-    updatePie: async (parent, { _id, link, flavors }) => {
+    updatePie: async (parent, { _id, links, flavors }) => {
       const old = await Pie.findOne({ _id });
       const newArray = old.flavors.concat(flavors);
 
       const updatedPie = await Pie.findOneAndUpdate(
         { _id },
         {
-          link: link,
+          links: links,
           flavors: newArray,
         },
         { new: true }
@@ -267,7 +306,7 @@ const resolvers = {
 
       return updatedPie;
     },
-    removePie: async (parent, { _id, link, flavors }) => {
+    removePie: async (parent, { _id, links, flavors }) => {
       const old = await Pie.findOne({ _id });
       const newArray = old.flavors.filter((item) => item !== flavors[0]);
       console.log(_id, newArray);
@@ -275,7 +314,7 @@ const resolvers = {
       const updatedPie = await Pie.findOneAndUpdate(
         { _id },
         {
-          link: link,
+          links: links,
           flavors: newArray,
         },
         { new: true }
@@ -283,32 +322,29 @@ const resolvers = {
 
       return updatedPie;
     },
+    addExtra: async (parent, args) => {
+      const extra = await Extra.create(args);
+
+      return extra;
+    },
+    updateExtra: async (parent, args) => {
+      const updatedExtra = await Extra.findOneAndUpdate(
+        { _id },
+        { args },
+        { new: true }
+      );
+
+      return updatedExtra;
+    },
+    removeExtra: async (parent, { _id }) => {
+      await Extra.findOneAndDelete({ _id });
+    },
     addSchedule: async (parent, args) => {
       const schedule = await Schedule.create(args);
 
       return schedule;
     },
-    updateSchedule: async (
-      parent,
-      args
-      // {
-      //   _id,
-      //   sundayAM,
-      //   sundayPM,
-      //   mondayAM,
-      //   mondayPM,
-      //   tuesdayAM,
-      //   tuesdayPM,
-      //   wednesdayAM,
-      //   wednesdayPM,
-      //   thursdayAM,
-      //   thursdayPM,
-      //   fridayAM,
-      //   fridayPM,
-      //   saturdayAM,
-      //   saturdayPM,
-      // }
-    ) => {
+    updateSchedule: async (parent, args) => {
       const { _id } = args;
       const old = await Schedule.findOne({ _id });
       console.log(old);
@@ -340,23 +376,7 @@ const resolvers = {
 
       return menu;
     },
-    updateMenu: async (
-      parent,
-      args
-      // {
-      //   _id,
-      //   eightInch,
-      //   tenInch,
-      //   quarterSheet,
-      //   halfSheet,
-      //   individualPie,
-      //   standardPie,
-      //   dozenCupcakes,
-      //   dozenCookies,
-      //   other,
-      //   otherPrice,
-      // }
-    ) => {
+    updateMenu: async (parent, args) => {
       const { id } = args;
       const old = await Menu.findOne(id);
       const argsArr = Object.entries(args);
@@ -364,23 +384,7 @@ const resolvers = {
       const newArr = tempArr.filter((item) => item[1] !== 0);
       const menu = Object.fromEntries(newArr);
       console.log(menu);
-      const updatedMenu = await Menu.findOneAndUpdate(
-        id,
-        menu,
-        //   {
-        //     eightInch: eightInch,
-        //     tenInch: tenInch,
-        //     quarterSheet: quarterSheet,
-        //     halfSheet: halfSheet,
-        //     individualPie: individualPie,
-        //     standardPie: standardPie,
-        //     dozenCupcakes: dozenCupcakes,
-        //     dozenCookies: dozenCookies,
-        //     other: other,
-        //     otherPrice: otherPrice,
-        //   },
-        { new: true }
-      );
+      const updatedMenu = await Menu.findOneAndUpdate(id, menu, { new: true });
 
       return updatedMenu;
     },

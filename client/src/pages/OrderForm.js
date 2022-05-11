@@ -7,6 +7,7 @@ import OrderCake from "../components/OrderForms/OrderCake";
 import OrderPie from "../components/OrderForms/OrderPie";
 import OrderCupcakes from "../components/OrderForms/OrderCupcakes";
 import OrderCookies from "../components/OrderForms/OrderCookies";
+import OrderExtras from "../components/OrderForms/Extras";
 
 const OrderForm = () => {
   const [product, setProduct] = useState("Cake");
@@ -18,11 +19,11 @@ const OrderForm = () => {
   };
 
   return (
-    <Page title="Order Form" background={{ backgroundColor: "#ffe7e799" }}>
+    <Page title="Order Form" background={{ backgroundColor: "#ffe7e750" }}>
       <Container style={{ paddingTop: "10px" }}>
         <Form className="orderform-form-style">
           <Form.Group>
-            <Form.Label className="form-label">Select a product: </Form.Label>
+            <Form.Label className="form-label">Select a category: </Form.Label>
           </Form.Group>
           <Dropdown>
             <Dropdown.Toggle
@@ -44,12 +45,9 @@ const OrderForm = () => {
               <Dropdown.Item onClick={chosen} value="Cookies" as={"button"}>
                 Cookies
               </Dropdown.Item>
-              {/* <Dropdown.Item onClick={chosen} value="Brownies" as={"button"}>
-                Brownies
+              <Dropdown.Item onClick={chosen} value="Extras" as={"button"}>
+                Extras
               </Dropdown.Item>
-              <Dropdown.Item onClick={chosen} value="Other" as={"button"}>
-                Other
-              </Dropdown.Item> */}
             </Dropdown.Menu>
           </Dropdown>
         </Form>
@@ -58,6 +56,7 @@ const OrderForm = () => {
           {product === "Pie" && <OrderPie />}
           {product === "Cupcakes" && <OrderCupcakes />}
           {product === "Cookies" && <OrderCookies />}
+          {product === "Extras" && <OrderExtras />}
         </div>
       </Container>
     </Page>

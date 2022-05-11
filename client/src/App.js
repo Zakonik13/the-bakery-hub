@@ -11,6 +11,7 @@ import Menu from "./pages/Menu";
 import OrderForm from "./pages/OrderForm";
 import Cart from "./pages/Cart";
 import AdminEditPage from "./pages/AdminEditPage";
+import AdminAdd from "./pages/AdminAdd";
 import Navigation from "./components/NavBar";
 import Cakes from "./components/GalleryItems/Cakes";
 import Pies from "./components/GalleryItems/Pies";
@@ -44,6 +45,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/admin" element={<Admin />} />
+            <Route path="/admin-add" element={<AdminAdd />} />
             <Route path="/admin-edit" element={<AdminEditPage />} />
             <Route path="/create-new-admin-signup" element={<Signup />} />
             <Route path="/gallery" element={<Gallery />} />

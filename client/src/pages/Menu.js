@@ -1,9 +1,15 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_MENU } from "../utils/queries";
 // Components
 import Page from "../components/Page";
 
 const Menu = () => {
+  const { data } = useQuery(GET_MENU);
+  const menu = data?.menu || {};
+  console.log(menu);
+
   return (
     <Page>
       <div
@@ -36,10 +42,10 @@ const Menu = () => {
           <Col>
             <label htmlFor="">Starting at:</label>
             <ul className="noDeco">
-              <li>$20</li>
-              <li>$30</li>
-              <li>$25</li>
-              <li>$35</li>
+              <li>${menu.eightInch ? menu.eightInch : "N/A"}</li>
+              <li>${menu.tenInch ? menu.tenInch : "N/A"}</li>
+              <li>${menu.quarterSheet ? menu.quarterSheet : "N/A"}</li>
+              <li>${menu.halfSheet ? menu.halfSheet : "N/A"}</li>
             </ul>
           </Col>
           <Col />
@@ -59,8 +65,8 @@ const Menu = () => {
           <Col>
             <label htmlFor="">Starting at:</label>
             <ul className="noDeco">
-              <li>$5</li>
-              <li>$15</li>
+              <li>${menu.individualPie ? menu.individualPie : "N/A"}</li>
+              <li>${menu.standardPie ? menu.standardPie : "N/A"}</li>
             </ul>
           </Col>
           <Col />
@@ -79,7 +85,7 @@ const Menu = () => {
           <Col>
             <label htmlFor="">Starting at:</label>
             <ul className="noDeco">
-              <li>$15</li>
+              <li>${menu.dozenCupcakes ? menu.dozenCupcakes : "N/A"}</li>
             </ul>
           </Col>
           <Col />
@@ -98,7 +104,7 @@ const Menu = () => {
           <Col>
             <label htmlFor="">Starting at:</label>
             <ul className="noDeco">
-              <li>$15</li>
+              <li>${menu.dozenCookies ? menu.dozenCookies : "N/A"}</li>
             </ul>
           </Col>
           <Col />

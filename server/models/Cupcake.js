@@ -1,9 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const cupcakeSchema = new Schema({
-  link: {
-    type: String,
-  },
+  links: [String],
   themes: [String],
   flavors: [String],
 });

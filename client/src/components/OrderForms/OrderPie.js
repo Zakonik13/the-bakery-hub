@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, Col, Row, Form, FloatingLabel } from "react-bootstrap";
 import { UPDATE_CART } from "../../utils/actions";
 import { useStoreContext } from "../../utils/GlobalState";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_PIE } from "../../utils/queries";
 
 const OrderPie = () => {
   const [state, dispatch] = useStoreContext();
@@ -12,6 +14,9 @@ const OrderPie = () => {
     qty: 0,
     text: "",
   });
+
+  const { data } = useQuery(GET_PIE);
+  const pie = data?.pie || {};
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -134,45 +139,16 @@ const OrderPie = () => {
                       name="flavor"
                       onChange={handleChange}
                     >
-                      <option style={{ display: "none" }}>-- Select --</option>
-                      <option value="Select" style={{ display: "none" }}>
-                        -- Select --
-                      </option>
-                      <option
-                        value="14"
-                        disabled
-                        style={{ fontWeight: "bold" }}
-                      >
-                        -- $14 each - Cream Pies --
-                      </option>
-                      <option value="Chocolate">Chocolate</option>
-                      <option value="Vanilla">Vanilla</option>
-                      <option value="Coconut">Coconut</option>
-                      <option value="Peanut Butter">Peanut Butter</option>
-                      <option value="Lemon">Lemon</option>
-                      <option value="Butterscotch">Butterscotch</option>
-                      <option
-                        value="15"
-                        disabled
-                        style={{ fontWeight: "bold" }}
-                      >
-                        -- $15 each - Fruit Pies --
-                      </option>
-                      <option value="Apple">Apple</option>
-                      <option value="Blueberry">Blueberry</option>
-                      <option value="Cherry">Cherry</option>
-                      <option value="Peach">Peach</option>
-                      <option value="Fresh Strawberry in Gel">
-                        Fresh Strawberry in Gel
-                      </option>
-                      <option
-                        value="16"
-                        disabled
-                        style={{ fontWeight: "bold" }}
-                      >
-                        -- $16 each - Chess Pies --
-                      </option>
-                      <option value="Chocolate Chess">Chocolate Chess</option>
+                      <option value="select">-- Select --</option>
+                      {pie.flavors ? (
+                        pie.flavors.map((item, index) => (
+                          <option value={item} key={index}>
+                            {item}
+                          </option>
+                        ))
+                      ) : (
+                        <option>Loading...</option>
+                      )}
                     </Form.Select>
                   ) : (
                     <Form.Select
@@ -180,44 +156,16 @@ const OrderPie = () => {
                       name="flavor"
                       onChange={handleChange}
                     >
-                      <option value="Select" style={{ display: "none" }}>
-                        -- Select --
-                      </option>
-                      <option
-                        value="Cream"
-                        disabled
-                        style={{ fontWeight: "bold" }}
-                      >
-                        -- $5 each - Cream Pies --
-                      </option>
-                      <option value="Chocolate">Chocolate</option>
-                      <option value="Vanilla">Vanilla</option>
-                      <option value="Coconut">Coconut</option>
-                      <option value="Peanut Butter">Peanut Butter</option>
-                      <option value="Lemon">Lemon</option>
-                      <option value="Butterscotch">Butterscotch</option>
-                      <option
-                        value="Fruit"
-                        disabled
-                        style={{ fontWeight: "bold" }}
-                      >
-                        -- $5 each - Fruit Pies --
-                      </option>
-                      <option value="Apple">Apple</option>
-                      <option value="Blueberry">Blueberry</option>
-                      <option value="Cherry">Cherry</option>
-                      <option value="Peach">Peach</option>
-                      <option value="Fresh Strawberry in Gel">
-                        Fresh Strawberry in Gel
-                      </option>
-                      <option
-                        value="Chess"
-                        disabled
-                        style={{ fontWeight: "bold" }}
-                      >
-                        -- $5 each - Chess Pies --
-                      </option>
-                      <option value="Chocolate Chess">Chocolate Chess</option>
+                      <option value="select">-- Select --</option>
+                      {pie.flavors ? (
+                        pie.flavors.map((item, index) => (
+                          <option value={item} key={index}>
+                            {item}
+                          </option>
+                        ))
+                      ) : (
+                        <option>Loading...</option>
+                      )}
                     </Form.Select>
                   )}
                 </Col>

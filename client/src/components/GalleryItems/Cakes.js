@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Image, Carousel, Button, Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import { GET_CAKE_IMAGE } from "../../utils/queries";
+import { GET_CAKE } from "../../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
 // Images
 import WeddingCake from "../../images/wedding-cake.jpg";
@@ -11,7 +11,7 @@ import BackButton from "../BackButton";
 import CarouselModal from "../CarouselModal";
 
 const Cakes = () => {
-  const { data, loading } = useQuery(GET_CAKE_IMAGE);
+  const { data, loading } = useQuery(GET_CAKE);
 
   if (loading) {
     return "Loading...";
@@ -20,18 +20,16 @@ const Cakes = () => {
   const images = data?.cakeImages || [];
   const birthday = [WeddingCake, Cupcake];
 
+  console.log(images);
+
   return (
     <div className="spacer">
-      <CarouselModal cakes={birthday} />
-
-      <Link to="/order-form">
-        <Button
-          className="call-to-action"
-          style={{ backgroundColor: "#b33e3e", border: "none" }}
-        >
-          Place Order
-        </Button>
-      </Link>
+      <Button
+        className="call-to-action"
+        style={{ backgroundColor: "#b33e3e", border: "none" }}
+      >
+        Place Order
+      </Button>
       <div>
         <BackButton />
       </div>
@@ -39,15 +37,22 @@ const Cakes = () => {
       <Container>
         <Row style={{ margin: "25px 0" }}>
           <div className="center-options">
-            <Image
-              src="https://i.imgur.com/oPeNFp3.jpg"
-              height="300px"
-              width="300px"
-            />
-            {/* <Image src={WeddingCake} /> */}
-            {images.map((item) => {
-              <Image src={item.link} height="300px" width="300px" />;
-            })}
+            <Carousel
+              interval={null}
+              style={{
+                boxShadow: "6px 2px 15px #00000060",
+                borderRadius: "15px",
+              }}
+            >
+              {images &&
+                images.map((item, index) => {
+                  console.log(item.link) && (
+                    <Carousel.Item id={index}>
+                      <Image src={item.link} />
+                    </Carousel.Item>
+                  );
+                })}
+            </Carousel>
           </div>
         </Row>
       </Container>

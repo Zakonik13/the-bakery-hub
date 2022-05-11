@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Button, Col, Row, Form, FloatingLabel } from "react-bootstrap";
 import { UPDATE_CART } from "../../utils/actions";
 import { useStoreContext } from "../../utils/GlobalState";
+import { useQuery } from "@apollo/react-hooks";
+import { GET_CUPCAKE } from "../../utils/queries";
 
 const OrderCupcakes = () => {
   const [state, dispatch] = useStoreContext();
@@ -13,6 +15,9 @@ const OrderCupcakes = () => {
     flavor: "Select",
     text: "",
   });
+
+  const { data } = useQuery(GET_CUPCAKE);
+  const cupcake = data?.cupcake || {};
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -95,46 +100,23 @@ const OrderCupcakes = () => {
                 <Col xs="8" lg="auto">
                   <Form.Select
                     onChange={handleChange}
+                    name="theme"
                     className="selector"
                     style={{
                       border: "none",
                       boxShadow: "2px 2px 8px #00000040",
                     }}
                   >
-                    {" "}
-                    <option value="Birthday">Birthday</option>;
-                    <option value="Sweet 16">Sweet 16</option>
-                    <option value="One Month Anniversary">
-                      One Month Anniversary
-                    </option>
-                    <option value="Bridal Shower">Bridal Shower</option>
-                    <option value="Groomsmen">Groomsmen Cake</option>
-                    <option value="Wedding">Wedding</option>
-                    <option value="Anniversary">Anniversary</option>
-                    <option value="Baby Shower">Baby Shower</option>
-                    <option value="Work">Work Party</option>
-                    <option
-                      value="holidays"
-                      disabled
-                      style={{ fontWeight: "bold" }}
-                    >
-                      -- Holidays --
-                    </option>
-                    <option value="New Year's">New Year's</option>
-                    <option value="Valentine's">Valentine's Day</option>
-                    <option value="St Patrick">St. Patrick's Day</option>
-                    <option value="Easter">Easter</option>
-                    <option value="April Fools">April Fool's Day</option>
-                    <option value="Mother's Day">Mother's Day</option>
-                    <option value="Father's Day">Father's Day</option>
-                    <option value="Memorial">Memorial Day</option>
-                    <option value="Labor">Labor Day</option>
-                    <option value="Wedding">Wedding</option>
-                    <option value="Veterans">Veteran's Day</option>
-                    <option value="4th of July">4th of July</option>
-                    <option value="Halloween">Halloween</option>
-                    <option value="Thanksgiving">Thanksgiving</option>
-                    <option value="Christmas">Christmas</option>
+                    <option value="select">-- Select --</option>
+                    {cupcake.themes ? (
+                      cupcake.themes.map((item, index) => (
+                        <option value={item} key={index}>
+                          {item}
+                        </option>
+                      ))
+                    ) : (
+                      <option>Loading...</option>
+                    )}
                   </Form.Select>
                 </Col>
               </Row>
@@ -230,23 +212,16 @@ const OrderCupcakes = () => {
                       boxShadow: "2px 2px 8px #00000040",
                     }}
                   >
-                    <option value="Select" hidden>
-                      Select
-                    </option>
-                    <option value="Caramel Apple">Caramel Apple</option>
-                    <option value="Carrot">Carrot</option>
-                    <option value="Chocolate">Chocolate</option>
-                    <option value="Chocolate Chip">Chocolate Chip</option>
-                    <option value="Citrus">Citrus Cake</option>
-                    <option value="Coconut">Coconut</option>
-                    <option value="Funfetti">Funfetti</option>
-                    <option value="Lemon">Lemon</option>
-                    <option value="Lemon Raspberry">Lemon Raspberry</option>
-                    <option value="Oreo">Oreo</option>
-                    <option value="Red Velvet">Red Velvet</option>
-                    <option value="Spice">Spice</option>
-                    <option value="White">White</option>
-                    <option value="Yellow">Yellow</option>
+                    <option value="select">-- Select --</option>
+                    {cupcake.flavors ? (
+                      cupcake.flavors.map((item, index) => (
+                        <option value={item} key={index}>
+                          {item}
+                        </option>
+                      ))
+                    ) : (
+                      <option>Loading...</option>
+                    )}
                   </Form.Select>
                 </Col>
               </Row>

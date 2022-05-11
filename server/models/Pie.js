@@ -1,9 +1,7 @@
 const { Schema, model } = require("mongoose");
 
 const pieSchema = new Schema({
-  link: {
-    type: String,
-  },
+  links: [String],
   flavors: [String],
 });
 

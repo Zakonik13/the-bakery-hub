@@ -30,19 +30,11 @@ export const GET_HOMEPAGE = gql`
   }
 `;
 
-export const GET_CAKE_IMAGE = gql`
-  query CakeImages {
-    cakeImages {
-      link
-    }
-  }
-`;
-
 export const GET_PIE = gql`
   query Pie {
     pie {
       _id
-      link
+      links
       flavors
     }
   }
@@ -52,8 +44,18 @@ export const GET_CAKE = gql`
   query Cake {
     cake {
       _id
-      link
+      links
       themes
+      flavors
+    }
+  }
+`;
+
+export const GET_COOKIE = gql`
+  query Cookie {
+    cookie {
+      _id
+      links
       flavors
     }
   }
@@ -63,9 +65,37 @@ export const GET_CUPCAKE = gql`
   query Cupcake {
     cupcake {
       _id
-      link
+      links
       themes
       flavors
+    }
+  }
+`;
+
+export const GET_EXTRAS = gql`
+  query Extras {
+    extras {
+      _id
+      product
+      link
+      flavor
+      theme
+      qty
+      price
+    }
+  }
+`;
+
+export const GET_EXTRA = gql`
+  query Extra($id: ID!) {
+    extra(_id: $id) {
+      _id
+      product
+      link
+      flavor
+      theme
+      qty
+      price
     }
   }
 `;

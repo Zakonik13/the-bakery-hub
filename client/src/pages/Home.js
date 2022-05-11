@@ -35,7 +35,7 @@ const Home = () => {
 
   return (
     <Page title="Home" background={background}>
-      <Hero className="hero" />
+      <Hero className="hero" hero={home.hero_image} />
 
       <Link to="/order-form">
         <Button
