@@ -21,7 +21,11 @@ const Navigation = () => {
           }}
           href="/"
         >
-          <Image src={Logo} height="60px" style={{ paddingRight: "10px" }} />
+          <Image
+            src={Logo}
+            height="60px"
+            style={{ marginLeft: "-20px", paddingRight: "10px" }}
+          />
           The Bakery Hub
         </Navbar.Brand>
 

@@ -37,7 +37,8 @@ const Hours = () => {
         <Row>
           <Col />
           <Col>
-            <h6 className="hour-title">Hours</h6>
+            <h4 className="hour-title">Hours</h4>
+            <hr style={{ color: "white" }} />
             <Opened workHours={hours} />
           </Col>
           <Col />

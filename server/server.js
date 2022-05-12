@@ -15,7 +15,7 @@ const path = require("path");
 const { typeDefs, resolvers } = require("./schemas");
 
 const db = require("./config/connection");
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 3001 || 8000;
 
 // require logic for integrating with Express
 const app = express();

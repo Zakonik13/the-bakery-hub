@@ -24,7 +24,7 @@ const Home = () => {
 
   const home = data?.homepage || {};
 
-  const background = { backgroundColor: "#ffe7e799" };
+  const background = { backgroundColor: "#ffe7e750" };
 
   return (
     <Page title="Home" background={background}>
@@ -41,7 +41,7 @@ const Home = () => {
 
       <Container>
         <Row
-          className="g-0 story"
+          className="g-0 center"
           style={{
             marginTop: "50px",
           }}
@@ -52,11 +52,12 @@ const Home = () => {
             style={{
               boxShadow: "6px 2px 15px #00000040",
               borderRadius: "15px",
+              marginBottom: "40px",
             }}
           >
             <center style={{ margin: "8% 4%" }}>
               <div
-                className="story"
+                className="center"
                 style={{
                   maxWidth: "280px",
                 }}
@@ -91,7 +92,7 @@ const Home = () => {
         </Row>
 
         <Row
-          className="g-0 story"
+          className="g-0 center"
           style={{
             marginTop: "50px",
             boxShadow: "6px 2px 15px #00000040",
@@ -99,7 +100,7 @@ const Home = () => {
           }}
         >
           <div
-            className="story"
+            className="center"
             style={{
               backgroundColor: "#00000000",
               border: "none",
@@ -128,7 +129,7 @@ const Home = () => {
         </Row>
 
         <Row
-          className="g-0 story"
+          className="g-0 center"
           style={{
             boxShadow: "6px 2px 15px #00000040",
             borderRadius: "15px",
@@ -136,7 +137,7 @@ const Home = () => {
           }}
         >
           <div
-            className="story"
+            className="center"
             style={{
               backgroundColor: "#00000000",
               border: "none",

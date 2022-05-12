@@ -62,7 +62,7 @@
   background-color: "#000";
 }
 
-.story {
+.center {
   display: flex;
   justify-content: space-evenly;
 }
@@ -340,7 +340,6 @@ label {
   display: flex;
   justify-content: center;
   color: white;
-  font-size: 15px;
 }
 
 .day-spacer {
@@ -364,21 +363,7 @@ label {
   justify-content: space-around;
 }
 
-.icon-padding {
-  padding: 10px;
-}
-
 /* Footer */
-.footer {
-  height: 310px;
-  width: 100%;
-  background-color: rgb(43, 43, 43);
-}
-
-.footer-spacer {
-  padding: 10px 0px 0px 20px;
-}
-
 .floatRight {
   float: right;
 }

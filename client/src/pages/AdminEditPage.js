@@ -1,7 +1,5 @@
 import React from "react";
 import { Container, Col } from "react-bootstrap";
-// import { ADD_CAKE_IMAGE } from "../utils/mutations";
-import { useMutation } from "@apollo/react-hooks";
 import Auth from "../utils/auth";
 // Components
 import EditHome from "../components/AdminEdit/EditHome";
@@ -12,8 +10,6 @@ import EditSchedule from "../components/AdminEdit/EditSchedule";
 import EditMenu from "../components/AdminEdit/EditMenu";
 
 const AdminEditPage = () => {
-  // const [addCakeImage] = useMutation(ADD_CAKE_IMAGE);
-
   return (
     <div className="spacer">
       {Auth.loggedIn() ? (
