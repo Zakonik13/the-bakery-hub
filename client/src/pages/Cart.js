@@ -92,7 +92,7 @@ const Cart = () => {
   };
 
   return (
-    <Page title="Cart" background={{ backgroundColor: "#ffe7e799" }}>
+    <Page title="Cart" background={{ backgroundColor: "#ffe7e750" }}>
       {/* show when submit order button is pressed if cart is empty */}
       <EmptyCartModal show={show} handleClose={handleClose} />
       {/* show contact form when submit order button is pressed if items are in cart */}

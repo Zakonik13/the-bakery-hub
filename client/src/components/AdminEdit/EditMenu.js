@@ -22,8 +22,6 @@ const EditMenu = () => {
   const [updateMenu] = useMutation(UPDATE_MENU);
   const menu = data?.menu || {};
 
-  console.log(menu);
-
   const handleChange = (event) => {
     const { name, value } = event.target;
 

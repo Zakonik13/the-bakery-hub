@@ -23,13 +23,7 @@ const Home = () => {
       "Our baked goods are always fresh and homemade and they always will be. On top of that, we offer our goods at affordable prices, meaning that everybody can enjoy fresh, wholesome bakery items every single day. We pride ourselves on being able to offer quality services with a friendly face, and our customers will attest to it. Sound good? Of course it does.",
   });
 
-  let home;
-
-  if (loading) {
-    return "Loading...";
-  } else {
-    home = data.homePage;
-  }
+  const home = data?.homepage || {};
 
   const background = { backgroundColor: "#ffe7e799" };
 
@@ -76,7 +70,9 @@ const Home = () => {
                   marginTop: "20px",
                 }}
               >
-                <p className="story-body">{home.home_paragraph1}</p>
+                <p className="story-body">
+                  {home.home_paragraph1 || "loading..."}
+                </p>
               </div>
             </center>
           </Col>
@@ -128,7 +124,7 @@ const Home = () => {
               float: "right",
             }}
           >
-            <p className="story-body">{home.home_paragraph2}</p>
+            <p className="story-body">{home.home_paragraph2 || "loading..."}</p>
           </div>
         </Row>
 
@@ -165,7 +161,7 @@ const Home = () => {
               float: "right",
             }}
           >
-            <p className="story-body">{home.home_paragraph3}</p>
+            <p className="story-body">{home.home_paragraph3 || "loading..."}</p>
           </div>
         </Row>
       </Container>

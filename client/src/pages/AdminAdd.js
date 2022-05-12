@@ -67,7 +67,6 @@ const AdminAdd = () => {
     otherPrice: "",
   });
 
-  console.log(homePage);
   const handleHomePageChange = (event) => {
     const { name, value } = event.target;
 
@@ -96,7 +95,7 @@ const AdminAdd = () => {
       [name]: value,
     });
   };
-  console.log(cake);
+
   const handleCake = async () => {
     await addCake({
       variables: {
@@ -161,7 +160,7 @@ const AdminAdd = () => {
       [name]: value,
     });
   };
-  console.log(schedule);
+
   const handleSchedule = async () => {
     addSchedule({
       variables: {
@@ -193,7 +192,7 @@ const AdminAdd = () => {
       [name]: newValue,
     });
   };
-  console.log(menu);
+
   const handleMenu = async () => {
     addMenu({
       variables: {

@@ -63,8 +63,6 @@ const OrderCookies = () => {
     }
   };
 
-  console.log(formState);
-
   return (
     <div>
       <form id="cookieID">

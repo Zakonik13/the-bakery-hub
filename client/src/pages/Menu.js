@@ -8,7 +8,6 @@ import Page from "../components/Page";
 const Menu = () => {
   const { data } = useQuery(GET_MENU);
   const menu = data?.menu || {};
-  console.log(menu);
 
   return (
     <Page>

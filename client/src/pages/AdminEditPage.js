@@ -16,22 +16,22 @@ const AdminEditPage = () => {
 
   return (
     <div className="spacer">
-      {/* {Auth.loggedIn() ? ( */}
-      <Container className="admin-container">
-        <h1>This is the Admin page!</h1>
-        <h6>
-          Change all of the fields you wish to edit and click save. <br />
-          Log out of Admin or click a tab in the Navigation Bar to see your new
-          changes!
-        </h6>
-        <EditHome />
-        <EditCake />
-        <EditCupcake />
-        <EditPie />
-        <EditSchedule />
-        <EditMenu />
-      </Container>
-      {/* ) : (
+      {Auth.loggedIn() ? (
+        <Container className="admin-container">
+          <h1>This is the Admin page!</h1>
+          <h6>
+            Change all of the fields you wish to edit and click save. <br />
+            Log out of Admin or click a tab in the Navigation Bar to see your
+            new changes!
+          </h6>
+          <EditHome />
+          <EditCake />
+          <EditCupcake />
+          <EditPie />
+          <EditSchedule />
+          <EditMenu />
+        </Container>
+      ) : (
         <Container style={{ height: "300px" }}>
           <Col>
             <center>
@@ -48,7 +48,7 @@ const AdminEditPage = () => {
             </center>
           </Col>
         </Container>
-      )} */}
+      )}
     </div>
   );
 };

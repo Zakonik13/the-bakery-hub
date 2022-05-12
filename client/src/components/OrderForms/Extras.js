@@ -18,7 +18,6 @@ const OrderExtras = () => {
 
   const { data } = useQuery(GET_EXTRAS);
   const extras = data?.extras || [];
-  console.log(extras);
 
   function capLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);

@@ -107,17 +107,6 @@ const Opened = ({ workHours }) => {
           </div>
         </>
       )}
-
-      {/* {workHours.map(
-        (item, index) =>
-          console.log(item[1]) && (
-            <div key={index}>
-              <div className="flex">
-                <p className="day-spacer hour-title">{item[1]}</p>
-              </div>
-            </div>
-          )
-      )} */}
     </>
   );
 };

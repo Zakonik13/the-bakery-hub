@@ -4,8 +4,6 @@ import { Image } from "react-bootstrap";
 import Cupcakes from "../images/theCupcake.jpg";
 
 const Hero = ({ hero }) => {
-  console.log(hero);
-
   const heroImage = hero || Cupcakes;
 
   return <Image src={heroImage} fluid />;

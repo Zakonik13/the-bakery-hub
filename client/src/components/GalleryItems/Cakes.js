@@ -20,8 +20,6 @@ const Cakes = () => {
   const images = data?.cakeImages || [];
   const birthday = [WeddingCake, Cupcake];
 
-  console.log(images);
-
   return (
     <div className="spacer">
       <Button
@@ -46,11 +44,9 @@ const Cakes = () => {
             >
               {images &&
                 images.map((item, index) => {
-                  console.log(item.link) && (
-                    <Carousel.Item id={index}>
-                      <Image src={item.link} />
-                    </Carousel.Item>
-                  );
+                  <Carousel.Item id={index}>
+                    <Image src={item.link} />
+                  </Carousel.Item>;
                 })}
             </Carousel>
           </div>
