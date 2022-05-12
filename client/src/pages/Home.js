@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import { Image, Col, Row, Container, Button } from "react-bootstrap";
 import { useMutation, useQuery } from "@apollo/react-hooks";
 import { GET_HOMEPAGE } from "../utils/queries";
-import { ADD_HOMEPAGE } from "../utils/mutations";
 // Images
 import Thornberry from "../images/Thornberry.jpg";
 // Components
@@ -11,10 +10,10 @@ import Page from "../components/Page";
 import Hero from "../components/Hero";
 
 const Home = () => {
-  const [addHomePage] = useMutation(ADD_HOMEPAGE);
   const { data, loading } = useQuery(GET_HOMEPAGE);
   const [formState, setFormState] = useState({
-    home_image: "http://localhost:3000/static/media/theCupcake.7bc09beb.jpg",
+    home_image:
+      "http://bakery-hub.herokuapp.com/static/media/theCupcake.7bc09beb.jpg",
     home_paragraph1:
       "At The Bakery Hub, we are third generation Thornberry's owned and operated. We have been serving our community for over 60 years and can't wait for the next 100 years to come. We serve fresh baked goods to order and can take your order today. Browse our gallery or click here to start ordering now.",
     home_paragraph2:

@@ -1,5 +1,5 @@
 {
-  "name": "the-bakery-hub",
+  "name": "bakery-hub",
   "version": "1.0.0",
   "main": "server/server.js",
   "scripts": {
