@@ -1,5 +1,4 @@
 const express = require("express");
-const { Cake } = require("./models");
 
 // import middleware function for verifying token
 const { authMiddleware } = require("./utils/auth");
@@ -16,7 +15,7 @@ const path = require("path");
 const { typeDefs, resolvers } = require("./schemas");
 
 const db = require("./config/connection");
-const PORT = process.env.PORT || 3001;
+const port = process.env.PORT || 8000;
 
 // require logic for integrating with Express
 const app = express();
@@ -52,11 +51,11 @@ async function startApolloServer(typeDefs, resolvers) {
   });
 
   db.once("open", () => {
-    app.listen(PORT, () => {
-      console.log(`API server running on port ${PORT}!`);
+    app.listen(port, () => {
+      console.log(`API server running on port ${port}!`);
       // log where we can go to test our GQL API
       console.log(
-        `Use GraphQL at http://localhost:${PORT}${apolloServer.graphqlPath}`
+        `Use GraphQL at http://localhost:${port}${apolloServer.graphqlPath}`
       );
     });
   });
