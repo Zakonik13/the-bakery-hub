@@ -22,10 +22,7 @@ const Footer = () => {
   return (
     <Container style={{ backgroundColor: "#2b2b2b", paddingTop: "30px" }} fluid>
       <Row>
-        <Col xs="8" lg="8">
-          <Hours />
-        </Col>
-        <Col xs="2" lg="4">
+        <Col xs="12" lg="3">
           {/* <h6 className="">Phone: (502) 572-7499</h6>
             <h6 className="floatLeft">Email: estherjackson@thebakeryhub.com</h6> */}
           <center>
@@ -66,6 +63,11 @@ const Footer = () => {
             </a>
           </center>
           <br />
+        </Col>
+        <Col xs="12" lg="5">
+          <Hours />
+        </Col>
+        <Col xs="12" lg="3">
           <center>
             <div>
               <Link to={"/admin"} onClick={handleClick}>

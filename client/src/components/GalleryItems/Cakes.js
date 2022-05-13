@@ -1,14 +1,9 @@
 import React from "react";
 import { Container, Image, Carousel, Button, Row } from "react-bootstrap";
-import { Link } from "react-router-dom";
 import { GET_CAKE } from "../../utils/queries";
 import { useQuery } from "@apollo/react-hooks";
-// Images
-import WeddingCake from "../../images/wedding-cake.jpg";
-import Cupcake from "../../images/blue-white-cupcakes.jpg";
 // Components
 import BackButton from "../BackButton";
-import CarouselModal from "../CarouselModal";
 
 const Cakes = () => {
   const { data, loading } = useQuery(GET_CAKE);
@@ -18,7 +13,6 @@ const Cakes = () => {
   }
 
   const images = data?.cakeImages || [];
-  const birthday = [WeddingCake, Cupcake];
 
   return (
     <div className="spacer">
@@ -43,11 +37,11 @@ const Cakes = () => {
               }}
             >
               {images &&
-                images.map((item, index) => {
-                  <Carousel.Item id={index}>
+                images.map((item, index) => (
+                  <Carousel.Item key={index}>
                     <Image src={item.link} />
-                  </Carousel.Item>;
-                })}
+                  </Carousel.Item>
+                ))}
             </Carousel>
           </div>
         </Row>

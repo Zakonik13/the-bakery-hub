@@ -25,7 +25,6 @@ const EditSchedule = () => {
   });
 
   const schedule = data?.schedule || {};
-  const id = schedule._id;
 
   const handleChange = (event) => {
     const { name, value } = event.target;

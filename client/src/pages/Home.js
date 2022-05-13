@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { Image, Col, Row, Container, Button } from "react-bootstrap";
-import { useMutation, useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/react-hooks";
 import { GET_HOMEPAGE } from "../utils/queries";
 // Images
 import Thornberry from "../images/Thornberry.jpg";
@@ -10,8 +10,8 @@ import Page from "../components/Page";
 import Hero from "../components/Hero";
 
 const Home = () => {
-  const { data, loading } = useQuery(GET_HOMEPAGE);
-  const [formState, setFormState] = useState({
+  const { data } = useQuery(GET_HOMEPAGE);
+  const homeDefault = {
     home_image:
       "http://bakery-hub.herokuapp.com/static/media/theCupcake.7bc09beb.jpg",
     home_paragraph1:
@@ -20,9 +20,9 @@ const Home = () => {
       "Are you looking for a special gift for a friend, or need a custom dessert for your company’s branding, event or advertising campaign? Try one of our custom cakes and be amazed. Our expert cake bakers can turn out a cake exactly to your specifications – you can choose the flavours, icing, lettering and anything else, as long as it’s within our means.",
     home_paragraph3:
       "Our baked goods are always fresh and homemade and they always will be. On top of that, we offer our goods at affordable prices, meaning that everybody can enjoy fresh, wholesome bakery items every single day. We pride ourselves on being able to offer quality services with a friendly face, and our customers will attest to it. Sound good? Of course it does.",
-  });
+  };
 
-  const home = data?.homepage || {};
+  const home = data?.homepage || homeDefault;
 
   const background = { backgroundColor: "#ffe7e750" };
 

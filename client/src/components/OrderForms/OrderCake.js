@@ -42,6 +42,7 @@ const OrderCake = () => {
           if (val === "select") {
             test = "fail";
           }
+          break;
         case "flavor":
           if (val === "select") {
             test = "fail";

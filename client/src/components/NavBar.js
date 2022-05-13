@@ -16,8 +16,10 @@ const Navigation = () => {
         <Navbar.Brand
           style={{
             color: "#fff",
-            fontSize: 40,
             textShadow: "0px 0px 8px #b33e3e",
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: "-14px",
           }}
           href="/"
         >
@@ -26,7 +28,7 @@ const Navigation = () => {
             height="60px"
             style={{ marginLeft: "-20px", paddingRight: "10px" }}
           />
-          The Bakery Hub
+          <p style={{ fontSize: "35px", paddingTop: "5px" }}>The Bakery Hub</p>
         </Navbar.Brand>
 
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
