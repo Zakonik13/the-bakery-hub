@@ -21,18 +21,18 @@ const Menu = () => {
             }}
           >
             <center>
-              <h4
+              <h3
                 style={{
                   fontWeight: "bold",
                   borderRadius: "15px 15px 0 0 ",
                   borderBottom: "black thin solid",
-                  paddingBottom: "15px",
+                  padding: "7px 0 7px 0",
 
                   backgroundColor: "#e97e7e80",
                 }}
               >
                 MENU
-              </h4>
+              </h3>
             </center>
             <center>
               <h4>Cakes</h4>
