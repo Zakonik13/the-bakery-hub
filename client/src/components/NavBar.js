@@ -10,10 +10,12 @@ const Navigation = () => {
     Auth.logout();
   };
 
+  const expandedWidth = Auth.loggedIn() ? "xl" : "lg";
+
   return (
     <Navbar
       collapseOnSelect
-      expand="lg"
+      expand={expandedWidth}
       variant="dark"
       fixed="top"
       style={{ height: "100px" }}
@@ -45,7 +47,7 @@ const Navigation = () => {
           id="responsive-navbar-nav"
           className="justify-content-end navbar-nav"
         >
-          <Nav style={{ fontSize: "3.2vmin" }}>
+          <Nav style={{ fontSize: "4.2vmin" }}>
             <center>
               <Nav.Link
                 href="/"

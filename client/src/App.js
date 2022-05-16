@@ -30,7 +30,7 @@ import Admin from "./components/Admin";
 import Signup from "./pages/Signup";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
