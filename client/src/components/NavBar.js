@@ -11,7 +11,13 @@ const Navigation = () => {
   };
 
   return (
-    <Navbar collapseOnSelect expand="lg" variant="dark" fixed="top">
+    <Navbar
+      collapseOnSelect
+      expand="lg"
+      variant="dark"
+      fixed="top"
+      style={{ height: "100px" }}
+    >
       <Container fluid>
         <Navbar.Brand
           style={{
@@ -29,7 +35,7 @@ const Navigation = () => {
             style={{ marginLeft: "-20px", paddingRight: "10px" }}
           />
 
-          <p style={{ fontSize: "5.5vmin", marginBottom: "0px" }}>
+          <p style={{ fontSize: "7vmin", marginBottom: "0px" }}>
             The Bakery Hub
           </p>
         </Navbar.Brand>

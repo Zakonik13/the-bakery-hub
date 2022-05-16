@@ -13,7 +13,7 @@ function Page(props) {
     <Container fluid>
       <div
         className="page"
-        style={{ backgroundColor: "#ffe7e750", paddingTop: "86px" }}
+        style={{ backgroundColor: "#ffe7e750", paddingTop: "99px" }}
       >
         {props.children}
       </div>
