@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Container, Form, Col, Row } from "react-bootstrap";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/client";
 import { UPDATE_SCHEDULE } from "../../utils/mutations";
 import { GET_SCHEDULE } from "../../utils/queries";
 

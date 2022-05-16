@@ -1,7 +1,7 @@
 import React from "react";
 import { Container, Image, Carousel, Button, Row } from "react-bootstrap";
 import { GET_CAKE } from "../../utils/queries";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 // Components
 import BackButton from "../BackButton";
 

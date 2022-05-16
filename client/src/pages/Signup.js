@@ -3,6 +3,8 @@ import Auth from "../utils/auth";
 import { Row, Button } from "react-bootstrap";
 import { useMutation } from "@apollo/client";
 import { ADD_USER } from "../utils/mutations";
+// Components
+import Page from "../components/Page";
 
 const Signup = () => {
   const [formState, setFormState] = useState({
@@ -20,6 +22,8 @@ const Signup = () => {
       [name]: value,
     });
   };
+
+  console.log(formState);
 
   // submit form
   const handleFormSubmit = async (event) => {
@@ -39,64 +43,40 @@ const Signup = () => {
   };
 
   return (
-    <div className="spacer log-box">
-      {/* <div className="card-body">
-        <form onSubmit={handleFormSubmit}>
-          <input
-            className="form-input"
-            placeholder="Your email"
-            name="email"
-            type="email"
-            id="email"
-            value={formState.email}
-            onChange={handleChange}
-          />
-          <input
-            className="form-input"
-            placeholder="******"
-            name="password"
-            type="password"
-            id="password"
-            value={formState.password}
-            onChange={handleChange}
-          />
-          <button className="btn d-block w-100" type="submit">
-            Submit
-          </button>
-          {error && <div>Sign up failed</div>}
+    <Page>
+      <div className="log-box">
+        <form className="form-box" onSubmit={handleFormSubmit}>
+          <div>
+            <Row className="pos">
+              <label>Admin Email</label>
+              <input
+                name="email"
+                type="email"
+                id="email"
+                value={formState.email}
+                onChange={handleChange}
+              />
+            </Row>
+            <br />
+            <Row className="pos">
+              <label>Admin Password</label>
+              <input
+                name="password"
+                type="password"
+                id="password"
+                value={formState.password}
+                onChange={handleChange}
+              />
+            </Row>
+            <br />
+            <Row>
+              <Button type="submit">Signup</Button>
+            </Row>
+            {error && <div>Sign up failed</div>}
+          </div>
         </form>
-      </div> */}
-      <form className="form-box" onSubmit={handleFormSubmit}>
-        <div>
-          <Row className="pos">
-            <label>Admin Email</label>
-            <input
-              name="email"
-              type="email"
-              id="email"
-              value={formState.email}
-              onChange={handleChange}
-            />
-          </Row>
-          <br />
-          <Row className="pos">
-            <label>Admin Password</label>
-            <input
-              name="password"
-              type="password"
-              id="password"
-              value={formState.password}
-              onChange={handleChange}
-            />
-          </Row>
-          <br />
-          <Row>
-            <Button type="submit">Signup</Button>
-          </Row>
-          {error && <div>Sign up failed</div>}
-        </div>
-      </form>
-    </div>
+      </div>
+    </Page>
   );
 };
 

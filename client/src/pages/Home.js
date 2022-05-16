@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Image, Col, Row, Container, Button } from "react-bootstrap";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import { GET_HOMEPAGE } from "../utils/queries";
 // Images
 import Thornberry from "../images/Thornberry.jpg";
@@ -24,10 +24,8 @@ const Home = () => {
 
   const home = data?.homepage || homeDefault;
 
-  const background = { backgroundColor: "#ffe7e750" };
-
   return (
-    <Page title="Home" background={background}>
+    <Page title="Home">
       <Hero className="hero" hero={home.hero_image} />
 
       <Link to="/order-form">

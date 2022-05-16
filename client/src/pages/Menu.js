@@ -1,6 +1,6 @@
 import React from "react";
 import { Row, Col } from "react-bootstrap";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import { GET_MENU } from "../utils/queries";
 // Components
 import Page from "../components/Page";
@@ -11,7 +11,7 @@ const Menu = () => {
 
   return (
     <Page background={{ backgroundColor: "#ffe7e750" }}>
-      <Row style={{ marginTop: "120px" }}>
+      <Row style={{ paddingTop: "40px" }}>
         <Col xs="1" lg="2" />
         <Col xs="10" lg="8">
           <div

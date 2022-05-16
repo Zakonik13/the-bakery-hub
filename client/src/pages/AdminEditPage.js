@@ -8,10 +8,11 @@ import EditCupcake from "../components/AdminEdit/EditCupcake";
 import EditPie from "../components/AdminEdit/EditPie";
 import EditSchedule from "../components/AdminEdit/EditSchedule";
 import EditMenu from "../components/AdminEdit/EditMenu";
+import Page from "../components/Page";
 
 const AdminEditPage = () => {
   return (
-    <div className="spacer">
+    <Page>
       {Auth.loggedIn() ? (
         <Container className="admin-container">
           <h1>This is the Admin page!</h1>
@@ -45,7 +46,7 @@ const AdminEditPage = () => {
           </Col>
         </Container>
       )}
-    </div>
+    </Page>
   );
 };
 

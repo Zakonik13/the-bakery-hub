@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Container, Form, Row, Col } from "react-bootstrap";
 import { UPDATE_HOMEPAGE } from "../../utils/mutations";
 import { GET_HOMEPAGE } from "../../utils/queries";
-import { useQuery, useMutation } from "@apollo/react-hooks";
+import { useQuery, useMutation } from "@apollo/client";
 // Components
 import ImageUploader from "../../components/ImageUploader";
 

@@ -1,7 +1,15 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { ApolloProvider } from "@apollo/react-hooks";
-import ApolloClient from "apollo-boost";
+// import { ApolloProvider } from "@apollo/react-hooks";
+import {
+  ApolloClient,
+  InMemoryCache,
+  ApolloProvider,
+  useQuery,
+  qgl,
+  createHttpLink,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 import { StoreProvider } from "./utils/GlobalState";
 import "bootstrap/dist/css/bootstrap.min.css";
 // Components and Pages
@@ -21,20 +29,42 @@ import Footer from "./components/Footer";
 import Admin from "./components/Admin";
 import Signup from "./pages/Signup";
 
-const client = new ApolloClient({
-  // Retrieve token from localStorage before each request is made to GraphQL
-  request: (operation) => {
-    const token = localStorage.getItem("id_token");
-
-    operation.setContext({
-      headers: {
-        authorization: token ? `Bearer ${token}` : "",
-      },
-    });
-  },
-  // Establish a new connection to the GraphQL server using Apollo
+const httpLink = createHttpLink({
   uri: "/graphql",
 });
+
+const authLink = setContext((_, { headers }) => {
+  // get the authentication token from local storage if it exists
+  const token = localStorage.getItem("token");
+  // return the headers to the context so httpLink can read them
+  return {
+    headers: {
+      ...headers,
+      authorization: token ? `Bearer ${token}` : "",
+    },
+  };
+});
+
+const client = new ApolloClient({
+  link: authLink.concat(httpLink),
+  cache: new InMemoryCache(),
+});
+
+// const client = new ApolloClient({
+//   // Retrieve token from localStorage before each request is made to GraphQL
+//   request: (operation) => {
+//     const token = localStorage.getItem("id_token");
+
+//     operation.setContext({
+//       headers: {
+//         authorization: token ? `Bearer ${token}` : "",
+//       },
+//     });
+//   },
+//   // Establish a new connection to the GraphQL server using Apollo
+//   uri: "/graphql",
+//   cache: new InMemoryCache()
+// });
 
 function App() {
   return (

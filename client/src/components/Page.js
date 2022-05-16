@@ -11,7 +11,10 @@ function Page(props) {
 
   return (
     <Container fluid>
-      <div className="page" style={background}>
+      <div
+        className="page"
+        style={{ backgroundColor: "#ffe7e750", paddingTop: "86px" }}
+      >
         {props.children}
       </div>
     </Container>

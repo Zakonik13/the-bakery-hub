@@ -3,6 +3,8 @@ import Auth from "../utils/auth";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import { Row, Button } from "react-bootstrap";
+// Components
+import Page from "./Page";
 
 const Admin = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
@@ -34,38 +36,40 @@ const Admin = (props) => {
   };
 
   return (
-    <div className="spacer log-box">
-      <form className="form-box" onSubmit={handleFormSubmit}>
-        <div>
-          <Row className="pos">
-            <label>Admin Email</label>
-            <input
-              name="email"
-              type="email"
-              id="email"
-              value={formState.email}
-              onChange={handleChange}
-            />
-          </Row>
-          <br />
-          <Row className="pos">
-            <label>Admin Password</label>
-            <input
-              name="password"
-              type="password"
-              id="password"
-              value={formState.password}
-              onChange={handleChange}
-            />
-          </Row>
-          <br />
-          <Row>
-            <Button type="submit">Login</Button>
-          </Row>
-          {error && <div>Login failed</div>}
-        </div>
-      </form>
-    </div>
+    <Page>
+      <div className="log-box">
+        <form className="form-box" onSubmit={handleFormSubmit}>
+          <div>
+            <Row className="pos">
+              <label>Admin Email</label>
+              <input
+                name="email"
+                type="email"
+                id="email"
+                value={formState.email}
+                onChange={handleChange}
+              />
+            </Row>
+            <br />
+            <Row className="pos">
+              <label>Admin Password</label>
+              <input
+                name="password"
+                type="password"
+                id="password"
+                value={formState.password}
+                onChange={handleChange}
+              />
+            </Row>
+            <br />
+            <Row>
+              <Button type="submit">Login</Button>
+            </Row>
+            {error && <div>Login failed</div>}
+          </div>
+        </form>
+      </div>
+    </Page>
   );
 };
 

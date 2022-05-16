@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Col, Row, Form, FloatingLabel } from "react-bootstrap";
 import { UPDATE_CART } from "../../utils/actions";
 import { useStoreContext } from "../../utils/GlobalState";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import { GET_CAKE } from "../../utils/queries";
 
 const OrderCake = () => {

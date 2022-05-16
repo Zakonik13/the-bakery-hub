@@ -1,6 +1,6 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
-import { useQuery } from "@apollo/react-hooks";
+import { useQuery } from "@apollo/client";
 import { GET_SCHEDULE } from "../utils/queries";
 // Components
 import Opened from "./Opened";
@@ -29,7 +29,9 @@ const Hours = () => {
   const schedule = data?.schedule || operatingHours;
 
   const scheduleArr = Object.entries(schedule);
-  const hours = scheduleArr.filter((item, index) => index !== 0);
+  const hours = scheduleArr.filter(
+    (item, index) => item[0] !== "_id" && item[0] !== "__typename"
+  );
 
   return (
     <div>

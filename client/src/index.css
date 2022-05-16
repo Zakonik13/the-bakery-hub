@@ -3,9 +3,9 @@
   padding: 0;
 }
 
-.spacer {
+/* .spacer {
   margin-top: 85.5px;
-}
+} */
 
 /* NavBar */
 .navbar {
@@ -20,7 +20,7 @@
 }
 
 .nav-link {
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
 .nav-link:hover {
@@ -50,7 +50,7 @@
 
 .call-to-action {
   position: absolute;
-  top: 95px;
+  top: 120px;
   right: 10px;
 }
 
@@ -321,15 +321,16 @@ label {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 30vw;
+  height: 400px;
 }
 
 .form-box {
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 15px;
   height: 300px;
-  width: 500px;
+  width: 90vmin;
   background-color: rgba(203, 216, 236, 0.712);
 }
 
