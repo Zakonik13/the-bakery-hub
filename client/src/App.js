@@ -30,7 +30,7 @@ import Admin from "./components/Admin";
 import Signup from "./pages/Signup";
 
 const httpLink = createHttpLink({
-  uri: "/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -49,22 +49,6 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
-
-// const client = new ApolloClient({
-//   // Retrieve token from localStorage before each request is made to GraphQL
-//   request: (operation) => {
-//     const token = localStorage.getItem("id_token");
-
-//     operation.setContext({
-//       headers: {
-//         authorization: token ? `Bearer ${token}` : "",
-//       },
-//     });
-//   },
-//   // Establish a new connection to the GraphQL server using Apollo
-//   uri: "/graphql",
-//   cache: new InMemoryCache()
-// });
 
 function App() {
   return (

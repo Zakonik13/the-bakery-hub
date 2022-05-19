@@ -16,6 +16,7 @@ const EditHome = () => {
     para3: "",
   });
 
+  console.log(data);
   const homePage = data?.homePage || {};
   const id = data?.homePage._id;
 
