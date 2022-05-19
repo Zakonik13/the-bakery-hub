@@ -29,8 +29,12 @@ import Footer from "./components/Footer";
 import Admin from "./components/Admin";
 import Signup from "./pages/Signup";
 
+// const httpLink = createHttpLink({
+//   uri: "http://localhost:3001/graphql",
+// });
+
 const httpLink = createHttpLink({
-  uri: "http://localhost:3001/graphql",
+  uri: "https://bakery-hub.herokuapp.com/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
