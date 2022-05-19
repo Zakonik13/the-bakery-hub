@@ -29,9 +29,9 @@ import Footer from "./components/Footer";
 import Admin from "./components/Admin";
 import Signup from "./pages/Signup";
 
-const httpLink = createHttpLink({
-  uri: "/graphql",
-});
+// const httpLink = createHttpLink({
+//   uri: "/graphql",
+// });
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -46,7 +46,7 @@ const authLink = setContext((_, { headers }) => {
 });
 
 const client = new ApolloClient({
-  link: authLink.concat(httpLink),
+  uri: "/graphql",
   cache: new InMemoryCache(),
 });
 

@@ -23,8 +23,6 @@ const Signup = () => {
     });
   };
 
-  console.log(formState);
-
   // submit form
   const handleFormSubmit = async (event) => {
     event.preventDefault();
