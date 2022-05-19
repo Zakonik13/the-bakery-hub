@@ -41,12 +41,12 @@ async function startApolloServer(typeDefs, resolvers) {
   if (process.env.NODE_ENV === "production") {
     app.use(express.static(path.join(__dirname, "../client/build")));
 
-    app.get("*", (req, res) => {
+    app.get("/", (req, res) => {
       res.sendFile(path.join(__dirname, "../client/build/index.html"));
     });
   }
 
-  app.get("*", (req, res) => {
+  app.get("/", (req, res) => {
     res.status(404).sendFile(path.join(__dirname, "./public/404.html"));
   });
 
