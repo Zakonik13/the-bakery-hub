@@ -1,4 +1,4 @@
-import gql from "graphql-tag";
+import { gql, useQuery } from "@apollo/client";
 
 export const QUERY_USER = gql`
   query user($email: String!) {
