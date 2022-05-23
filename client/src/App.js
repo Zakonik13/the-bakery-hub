@@ -34,7 +34,7 @@ import Signup from "./pages/Signup";
 // });
 
 const httpLink = createHttpLink({
-  uri: "https://bakery-hub.herokuapp.com/graphql",
+  uri: "http://localhost:3001/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
@@ -53,6 +53,19 @@ const client = new ApolloClient({
   link: authLink.concat(httpLink),
   cache: new InMemoryCache(),
 });
+
+client
+  .query({
+    query: gql`
+      query Users {
+        users {
+          _id
+          email
+        }
+      }
+    `,
+  })
+  .then((result) => console.log(result));
 
 function App() {
   return (
