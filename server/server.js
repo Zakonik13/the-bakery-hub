@@ -52,7 +52,7 @@ async function startApolloServer(typeDefs, resolvers) {
   });
 
   db.once("open", () => {
-    app.listen(PORT, () => {
+    app.listen({ port: PORT }, () => {
       console.log(`API server running on PORT ${PORT}!`);
       // log where we can go to test our GQL API
       console.log(
