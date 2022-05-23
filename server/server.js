@@ -16,6 +16,7 @@ const { typeDefs, resolvers } = require("./schemas");
 
 const db = require("./config/connection");
 const PORT = process.env.PORT || 3001;
+console.log(PORT);
 
 // require logic for integrating with Express
 const app = express();

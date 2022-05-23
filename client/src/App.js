@@ -34,7 +34,7 @@ import Signup from "./pages/Signup";
 // });
 
 const httpLink = createHttpLink({
-  uri: "bakery-hub.herokuapp.com/graphql",
+  uri: "https://bakery-hub.herokuapp.com/graphql",
 });
 
 const authLink = setContext((_, { headers }) => {
