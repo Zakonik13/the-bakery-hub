@@ -28,16 +28,16 @@ import Signup from "./pages/Signup";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "/",
+  uri: "http://localhost:3001/graphql",
 });
 
 // const httpLink = createHttpLink({
 //   uri: "http://localhost:3001/graphql",
 // });
 
-// // const httpLink = createHttpLink({
-// //   uri: "https://bakery-hub.herokuapp.com/graphql",
-// // });
+// const httpLink = createHttpLink({
+//   uri: "https://bakery-hub.herokuapp.com/graphql",
+// });
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -54,21 +54,6 @@ const authLink = setContext((_, { headers }) => {
 // const client = new ApolloClient({
 //   link: authLink.concat(httpLink),
 //   cache: new InMemoryCache(),
-// });
-
-// const client = new ApolloClient({
-//   // Retrieve token from localStorage before each request is made to GraphQL
-//   request: (operation) => {
-//     const token = localStorage.getItem("id_token");
-
-//     operation.setContext({
-//       headers: {
-//         authorization: token ? `Bearer ${token}` : "",
-//       },
-//     });
-//   },
-//   // Establish a new connection to the GraphQL server using Apollo
-//   uri: "/graphql",
 // });
 
 function App() {
