@@ -1,4 +1,13 @@
 const express = require("express");
+const mongoose = require("mongoose");
+require("dotenv").config();
+
+mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/3001", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useCreateIndex: true,
+  useFindAndModify: false,
+});
 
 // import middleware function for verifying token
 const { authMiddleware } = require("./utils/auth");
@@ -14,7 +23,7 @@ const path = require("path");
 // import our typeDefs and resolvers
 const { typeDefs, resolvers } = require("./schemas");
 
-const db = require("./config/connection");
+const db = mongoose.connection;
 const PORT = process.env.PORT || 3001;
 
 // require logic for integrating with Express
