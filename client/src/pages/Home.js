@@ -11,6 +11,7 @@ import Hero from "../components/Hero";
 
 const Home = () => {
   const { data } = useQuery(GET_HOMEPAGE);
+
   const homeDefault = {
     home_image:
       "http://bakery-hub.herokuapp.com/static/media/theCupcake.7bc09beb.jpg",
@@ -22,7 +23,8 @@ const Home = () => {
       "Our baked goods are always fresh and homemade and they always will be. On top of that, we offer our goods at affordable prices, meaning that everybody can enjoy fresh, wholesome bakery items every single day. We pride ourselves on being able to offer quality services with a friendly face, and our customers will attest to it. Sound good? Of course it does.",
   };
 
-  const home = data?.homepage || homeDefault;
+  const home = data?.homePage || homeDefault;
+  console.log(home);
 
   return (
     <Page title="Home">

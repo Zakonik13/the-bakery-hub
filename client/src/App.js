@@ -1,12 +1,9 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import { ApolloProvider } from "@apollo/react-hooks";
 import {
+  ApolloProvider,
   ApolloClient,
   InMemoryCache,
-  ApolloProvider,
-  useQuery,
-  gql,
   createHttpLink,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
@@ -29,13 +26,18 @@ import Footer from "./components/Footer";
 import Admin from "./components/Admin";
 import Signup from "./pages/Signup";
 
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: "http://localhost:3001/graphql",
+});
+
 // const httpLink = createHttpLink({
 //   uri: "http://localhost:3001/graphql",
 // });
 
-const httpLink = createHttpLink({
-  uri: "https://bakery-hub.herokuapp.com/graphql",
-});
+// // const httpLink = createHttpLink({
+// //   uri: "https://bakery-hub.herokuapp.com/graphql",
+// // });
 
 const authLink = setContext((_, { headers }) => {
   // get the authentication token from local storage if it exists
@@ -49,23 +51,25 @@ const authLink = setContext((_, { headers }) => {
   };
 });
 
-const client = new ApolloClient({
-  link: authLink.concat(httpLink),
-  cache: new InMemoryCache(),
-});
+// const client = new ApolloClient({
+//   link: authLink.concat(httpLink),
+//   cache: new InMemoryCache(),
+// });
 
-client
-  .query({
-    query: gql`
-      query Users {
-        users {
-          _id
-          email
-        }
-      }
-    `,
-  })
-  .then((result) => console.log(result));
+// const client = new ApolloClient({
+//   // Retrieve token from localStorage before each request is made to GraphQL
+//   request: (operation) => {
+//     const token = localStorage.getItem("id_token");
+
+//     operation.setContext({
+//       headers: {
+//         authorization: token ? `Bearer ${token}` : "",
+//       },
+//     });
+//   },
+//   // Establish a new connection to the GraphQL server using Apollo
+//   uri: "/graphql",
+// });
 
 function App() {
   return (

@@ -16,7 +16,6 @@ const { typeDefs, resolvers } = require("./schemas");
 
 const db = require("./config/connection");
 const PORT = process.env.PORT || 3001;
-console.log(PORT, "hello");
 
 // require logic for integrating with Express
 const app = express();
@@ -52,9 +51,8 @@ async function startApolloServer(typeDefs, resolvers) {
   });
 
   db.once("open", () => {
-    app.listen({ port: PORT }, () => {
+    app.listen(PORT, () => {
       console.log(`API server running on PORT ${PORT}!`);
-      // log where we can go to test our GQL API
       console.log(
         `Use GraphQL at http://localhost:${PORT}${apolloServer.graphqlPath}`
       );

@@ -8,7 +8,6 @@ import Page from "../components/Page";
 const Menu = () => {
   const { data } = useQuery(GET_MENU);
   const menu = data?.menu || {};
-
   return (
     <Page background={{ backgroundColor: "#ffe7e750" }}>
       <Row style={{ paddingTop: "40px" }}>

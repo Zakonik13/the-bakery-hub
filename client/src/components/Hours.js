@@ -33,6 +33,8 @@ const Hours = () => {
     (item, index) => item[0] !== "_id" && item[0] !== "__typename"
   );
 
+  console.log(hours);
+
   return (
     <div>
       <Container>
