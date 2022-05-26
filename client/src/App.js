@@ -28,7 +28,7 @@ import Signup from "./pages/Signup";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "http://localhost:3001/graphql",
+  uri: "/graphql",
 });
 
 // const httpLink = createHttpLink({
