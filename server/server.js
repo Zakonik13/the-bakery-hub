@@ -37,7 +37,7 @@ async function startApolloServer(typeDefs, resolvers) {
   // more required logic for integrating with Express
   await apolloServer.start();
   // integrate our Apollo server with the Express application as middleware
-  apolloServer.applyMiddleware({ app, path: "/graphql" });
+  apolloServer.applyMiddleware({ app, path: "/" });
 
   // Serve up static assets
   if (process.env.NODE_ENV === "production") {
