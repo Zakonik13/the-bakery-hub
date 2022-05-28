@@ -137,7 +137,37 @@ const OrderCake = () => {
                         </option>
                       ))
                     ) : (
-                      <option>Loading...</option>
+                      <>
+                        <option value="Birthday">Birthday</option>
+                        <option value="Bridal Shower">Bridal Shower</option>
+                        <option value="Groomsmen">Groomsmen</option>
+                        <option value="Wedding">Wedding</option>
+                        <option value="Anniversary">Anniversary</option>
+                        <option value="Baby Shower">Baby Shower</option>
+                        <option value="Sweet 16">Sweet 16</option>
+                        <option value="Work Party">Work Party</option>
+                        <option value="Retirement">Retirement</option>
+                        <option value="Valentine's Day">Valentine's Day</option>
+                        <option value="St. Patrick's Day">
+                          St. Patrick's Day
+                        </option>
+                        <option value="April Fool's Day">
+                          April Fool's Day
+                        </option>
+                        <option value="Derby Day">Derby Day</option>
+                        <option value="Easter">Easter</option>
+                        <option value="Mother's Day">Mother's Day</option>
+                        <option value="Memorial Day">Memorial Day</option>
+                        <option value="Father's Day">Father's Day</option>
+                        <option value="July 4th">4th of July</option>
+                        <option value="Labor Day">Labor Day</option>
+                        <option value="Halloween">Halloween</option>
+                        <option value="Veteran's Day">Veteran's Day</option>
+                        <option value="Thanksgiving">Thanksgiving</option>
+                        <option value="Christmas">Christmas</option>
+                        <option value="New Year's">New Year's</option>
+                        <option value="Other">Other</option>
+                      </>
                     )}
                   </Form.Select>
                 </Col>
@@ -339,18 +369,18 @@ const OrderCake = () => {
                     <div key={`inline-${type}`} className="mb-3">
                       <Form.Check
                         inline
-                        label="Traditional White"
+                        label="Thornberry's Traditional"
                         name="icing"
-                        value="Traditional White"
+                        value="Thornberry's Traditional"
                         type={type}
                         id={`inline-${type}-1`}
                         onChange={handleChange}
                       />
                       <Form.Check
                         inline
-                        label="Traditional Chocolate"
+                        label="Buttercream"
                         name="icing"
-                        value="Traditional Chocolate"
+                        value="Buttercream"
                         type={type}
                         id={`inline-${type}-2`}
                         onChange={handleChange}
@@ -396,7 +426,25 @@ const OrderCake = () => {
                         </option>
                       ))
                     ) : (
-                      <option>Loading...</option>
+                      <>
+                        <option value="White">White</option>
+                        <option value="Chocolate">Chocolate</option>
+                        <option value="Yellow">Yellow</option>
+                        <option value="Red Velvet">Red Velvet</option>
+                        <option value="Lemon">Lemon</option>
+                        <option value="Funfetti">Funfetti</option>
+                        <option value="Strawberry">Strawberry</option>
+                        <option value="Lemon Raspberry">Lemon Raspberry</option>
+                        <option value="Citrus Cake">Citrus Cake</option>
+                        <option value="Chocolate Chip">Chocolate Chip</option>
+                        <option value="Oreo">Oreo</option>
+                        <option value="Carrot">Carrot</option>
+                        <option value="Spice">Spice</option>
+                        <option value="Coconut">Coconut</option>
+                        <option value="Caramel Apple Cake">
+                          Caramel Apple Cake
+                        </option>
+                      </>
                     )}
                   </Form.Select>
                 </Col>
